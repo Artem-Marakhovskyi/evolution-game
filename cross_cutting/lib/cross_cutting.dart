@@ -3,6 +3,5 @@
 /// More dartdocs go here.
 library cross_cutting;
 
-export 'src/cross_cutting_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/events_service.dart';
+export 'src/log.dart';
