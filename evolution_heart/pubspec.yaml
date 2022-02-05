@@ -13,6 +13,8 @@ dependencies:
     git: 
       url: git@github.com:Artem-Marakhovskyi/evolution-game.git
       path: cross_cutting
+  tuple: ^2.0.0
+  get_it: ^3.1.0
 
 dev_dependencies:
   lints: ^1.0.0
