@@ -14,6 +14,10 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  cross_cutting:
+    git: 
+      url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+      path: cross_cutting    
 
 dev_dependencies:
   flutter_test:
