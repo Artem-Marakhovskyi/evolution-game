@@ -7,7 +7,9 @@ void main() {
     void expectRandom(int expectedCount) {
       var die = Die(expectedCount);
       var actual = [];
-      die.forEach((x) => actual.add(x));
+      for (var x in die) {
+        actual.add(x);
+      }
 
       expect(actual.length, expectedCount);
       expect(actual.every((element) => element > 0 && element < 7), isTrue);
@@ -30,7 +32,9 @@ void main() {
     void expectDeterministicForeach(List<int> expected) {
       var die = DeterministicDie(expected);
       var actual = [];
-      die.forEach((x) => actual.add(x));
+      for (var x in die) {
+        actual.add(x);
+      }
       expect(actual, expected);
     }
 

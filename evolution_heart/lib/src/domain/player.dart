@@ -16,4 +16,6 @@ class Player extends Identifiable {
 
   int get cardsRequired =>
       cards.isEmpty ? cardsToBePushedWhenEmpty : cards.length + 1;
+
+  void pushCards(Card? pop) {}
 }
