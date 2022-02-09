@@ -1,6 +1,7 @@
-import 'package:cross_cutting/cross_cutting.dart';
-import 'package:evolution_heart/src/model/cards_stack.dart';
-import 'package:evolution_heart/src/model/context/ambient_context.dart';
+import '../bootstrap/ambient_context.dart';
+import 'cards_stack.dart';
+import 'stages/phase_growth.dart';
+import 'stages/phase_young_generation.dart';
 
 import 'player.dart';
 import 'stores/cards_store.dart';
@@ -23,9 +24,12 @@ class Game {
   }
 
   Future start() {
-    while (_cardsStack.canTake(getCardsRequired())) {}
+    while (_cardsStack.canTake(getCardsRequired())) {
+      PhaseYoungGeneration(_players, _cardsStack).pushCards();
+      PhaseGrowth();
+    }
 
-    return Future.delayed(Duration.zero, () => 32);
+    return Future.delayed(Duration.zero, () => null);
   }
 
   int getCardsRequired() => _players

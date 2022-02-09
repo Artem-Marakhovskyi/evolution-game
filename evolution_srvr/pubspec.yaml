@@ -13,9 +13,16 @@ dependencies:
   shelf: ^1.1.0
   shelf_router: ^1.0.0
   cross_cutting:
-    git: 
-      url: git@github.com:Artem-Marakhovskyi/evolution-game.git
-      path: cross_cutting  
+    # git: 
+    #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+    #   path: cross_cutting
+    path: ../cross_cutting
+  evolution_heart:
+    # git: 
+    #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+    #   path: evolution_heart
+    path: ../evolution_heart
+
 
 dev_dependencies:
   http: ^0.13.0

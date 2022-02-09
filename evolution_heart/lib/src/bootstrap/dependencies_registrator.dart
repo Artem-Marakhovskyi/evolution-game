@@ -1,5 +1,6 @@
-import 'package:evolution_heart/src/model/die.dart';
 import 'package:get_it/get_it.dart';
+
+import '../domain/die.dart';
 
 class DependenciesRegistrator {
   void run() {

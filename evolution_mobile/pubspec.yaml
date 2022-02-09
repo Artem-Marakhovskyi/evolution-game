@@ -15,9 +15,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cross_cutting:
-    git: 
-      url: git@github.com:Artem-Marakhovskyi/evolution-game.git
-      path: cross_cutting    
+    # git: 
+    #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+    #   path: cross_cutting
+    path: ../cross_cutting
+  evolution_heart:
+    # git: 
+    #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+    #   path: evolution_heart
+    path: ../evolution_heart
 
 dev_dependencies:
   flutter_test:

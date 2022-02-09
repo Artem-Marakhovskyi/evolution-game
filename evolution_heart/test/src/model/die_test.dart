@@ -1,4 +1,5 @@
-import 'package:evolution_heart/src/model/die.dart';
+import 'package:evolution_heart/src/domain/die.dart';
+
 import 'package:test/test.dart';
 
 void main() {
