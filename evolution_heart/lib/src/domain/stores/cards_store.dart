@@ -1,4 +1,4 @@
-import '../cards/card.dart';
+import '../entities/cards/card.dart';
 
 class CardsStore {
   List<Card> _cards = [];
@@ -7,7 +7,7 @@ class CardsStore {
     _cards = [Card(), Card(), Card()];
   }
 
-  Future<List<Card>> fetchCards() {
+  Future<List<Card>> fetch() {
     return Future.value(_cards);
   }
 }

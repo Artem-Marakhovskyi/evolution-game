@@ -1,8 +1,8 @@
 import 'package:cross_cutting/cross_cutting.dart';
 
 class AmbientContext {
-  final EventsService _eventsService;
-  final Log _log;
+  final EventsService eventsService;
+  final Log log;
 
-  AmbientContext(this._eventsService, this._log);
+  AmbientContext(this.eventsService, this.log);
 }

@@ -1,7 +1,12 @@
-import 'cards/card.dart';
+import 'package:evolution_heart/src/domain/entities/identifiable.dart';
 
-class Player {
+import 'entities/cards/card.dart';
+
+class Player extends Identifiable {
   static const int cardsToBePushedWhenEmpty = 6;
+
+  @override
+  String get id => name;
 
   final String name;
 
@@ -10,5 +15,5 @@ class Player {
   List<Card> cards = <Card>[];
 
   int get cardsRequired =>
-      cards.length == 0 ? cardsToBePushedWhenEmpty : cards.length + 1;
+      cards.isEmpty ? cardsToBePushedWhenEmpty : cards.length + 1;
 }

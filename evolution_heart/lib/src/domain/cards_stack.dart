@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'cards/card.dart';
+import 'entities/cards/card.dart';
 
 class CardsStack {
   late final Queue<Card> _cards;

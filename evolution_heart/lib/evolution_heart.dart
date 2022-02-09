@@ -1,9 +1,7 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library evolution_heart;
 
 export 'src/domain/player.dart';
 export 'src/domain/game.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/bootstrap/dependencies_registry.dart';
+export 'src/domain/stores/cards_store.dart';
+export '../evolution_heart.dart';

@@ -1,3 +1,6 @@
+import 'package:evolution_heart/src/bootstrap/dependencies_registry.dart';
+import 'package:get_it/get_it.dart';
+
 import '../bootstrap/ambient_context.dart';
 import 'cards_stack.dart';
 import 'stages/phase_growth.dart';
@@ -8,19 +11,20 @@ import 'stores/cards_store.dart';
 
 class Game {
   final List<Player> _players;
-  final AmbientContext _ambientContext;
+  late final AmbientContext _ambientContext;
   final CardsStore _cardsStore;
 
   late final CardsStack _cardsStack;
 
-  Game(
-    this._players,
-    this._ambientContext,
-    this._cardsStore,
-  ) {}
+  Game(DependenciesRegistry dependenciesRegistrator, this._players,
+      this._cardsStore) {
+    dependenciesRegistrator.run();
+
+    _ambientContext = GetIt.I.get<AmbientContext>();
+  }
 
   Future prepare() async {
-    _cardsStack = CardsStack(await _cardsStore.fetchCards());
+    _cardsStack = CardsStack(await _cardsStore.fetch());
   }
 
   Future start() {
