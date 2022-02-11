@@ -14,11 +14,11 @@ dependencies:
     #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
     #   path: cross_cutting
     path: ../cross_cutting
-  evolution_heart:
+  evolution_engine:
     # git: 
     #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
-    #   path: evolution_heart
-    path: ../evolution_heart
+    #   path: evolution_engine
+    path: ../evolution_engine
 
 dev_dependencies:
   lints: ^1.0.0
