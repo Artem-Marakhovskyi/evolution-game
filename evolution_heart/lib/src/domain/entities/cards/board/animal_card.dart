@@ -1,0 +1,3 @@
+class AnimalCard {
+  //int currentConsumption;
+}

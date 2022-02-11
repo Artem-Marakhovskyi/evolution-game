@@ -32,6 +32,13 @@
             "request": "launch",
             "type": "dart",
             "program": "bin/main.dart"
+        },
+        {
+            "name": "playground",
+            "cwd": "playground",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/playground.dart"
         }
     ]
 }
