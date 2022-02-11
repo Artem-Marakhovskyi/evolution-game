@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cross_cutting/cross_cutting.dart';
-import 'package:evolution_heart/evolution_heart.dart';
+import 'package:evolution_heart/evolution_engine.dart';
 import 'package:evolution_heart/src/bootstrap/ambient_context.dart';
 import 'package:evolution_heart/src/domain/stores/players_store.dart';
 import 'package:get_it/get_it.dart';

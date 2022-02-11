@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:evolution_heart/evolution_heart.dart';
+import 'package:evolution_engine/evolution_engine.dart';
 
 Future<void> main(List<String> arguments) async {
   var game = Game(null);
