@@ -1,6 +1,6 @@
 import 'package:evolution_engine/src/stores/models/animal_card.dart';
 import 'package:evolution_engine/src/stores/models/identifiable.dart';
-import 'package:evolution_engine/src/stores/models/single_card.dart';
+import 'package:evolution_engine/src/stores/models/deck_card.dart';
 
 class Player extends Identifiable {
   static const int cardsToBePushedWhenEmpty = 6;
@@ -12,7 +12,7 @@ class Player extends Identifiable {
 
   Player(this.name);
 
-  List<SingleCard> cards = <SingleCard>[];
+  List<DeckCard> cards = <DeckCard>[];
 
   List<AnimalCard> animals = <AnimalCard>[];
 
@@ -22,7 +22,7 @@ class Player extends Identifiable {
 
   bool get hasPassedThisRound => false;
 
-  void pushCards(SingleCard card) {
+  void pushCards(DeckCard card) {
     cards.add(card);
   }
 

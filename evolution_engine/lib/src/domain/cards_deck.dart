@@ -1,15 +1,15 @@
 import 'dart:collection';
 
 import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
-import 'package:evolution_engine/src/stores/models/single_card.dart';
+import 'package:evolution_engine/src/stores/models/deck_card.dart';
 
 import '../../evolution_engine.dart';
 
 class CardsDeck {
-  late final Queue<SingleCard> _cards;
+  late final Queue<DeckCard> _cards;
 
-  CardsDeck(List<SingleCard> cards) {
-    _cards = Queue<SingleCard>();
+  CardsDeck(List<DeckCard> cards) {
+    _cards = Queue<DeckCard>();
     _cards.addAll([...cards]..shuffle());
   }
 
@@ -23,7 +23,7 @@ class CardsDeck {
 
   bool canTakeCards(int count) => _cards.length >= count;
 
-  SingleCard pop(int count) {
+  DeckCard pop(int count) {
     if (canTakeCards(count)) {
       return throw CardsException("There are no cards to be popped");
     }

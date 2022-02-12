@@ -1,6 +1,6 @@
 import 'card_kinds.dart';
 
-class SingleCard {
+class DeckCard {
   final CardKinds ego;
-  SingleCard(this.ego);
+  DeckCard(this.ego);
 }

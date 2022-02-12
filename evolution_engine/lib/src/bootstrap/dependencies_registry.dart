@@ -1,5 +1,6 @@
 import 'package:cross_cutting/cross_cutting.dart';
-import 'package:evolution_engine/src/io/external_output/writers/output_writer.dart';
+import 'package:evolution_engine/src/io/input/input_reader.dart';
+import 'package:evolution_engine/src/io/output/output_writer.dart';
 import 'package:evolution_engine/src/stores/cards_store.dart';
 import 'package:evolution_engine/src/stores/players_store.dart';
 import 'package:get_it/get_it.dart';
@@ -17,6 +18,7 @@ class DependenciesRegistry {
     externalModules ??= DependenciesExternalModule();
 
     GetIt.I.registerSingleton<OutputWriter>(externalModules.getOutputWriter());
+    GetIt.I.registerSingleton<InputReader>(externalModules.getInputReader());
     GetIt.I.registerSingleton<CardsStore>(externalModules.getCardsStore());
     GetIt.I.registerSingleton<PlayersStore>(externalModules.getPlayersStore());
   }
@@ -26,4 +28,5 @@ class DependenciesExternalModule {
   CardsStore getCardsStore() => CardsStore();
   PlayersStore getPlayersStore() => PlayersStore();
   OutputWriter getOutputWriter() => OutputWriter(GetIt.I.get<Log>());
+  InputReader getInputReader() => InputReader();
 }

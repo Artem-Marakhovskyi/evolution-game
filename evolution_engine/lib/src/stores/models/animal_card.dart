@@ -1,9 +1,9 @@
 import 'package:evolution_engine/src/stores/models/attribute_card.dart';
 import 'package:evolution_engine/src/stores/models/card_kinds.dart';
-import 'package:evolution_engine/src/stores/models/single_card.dart';
+import 'package:evolution_engine/src/stores/models/deck_card.dart';
 
 class AnimalCard {
-  final SingleCard card;
+  final DeckCard card;
   final List<AttributeCard> attrs = <AttributeCard>[];
 
   AnimalCard(this.card);
