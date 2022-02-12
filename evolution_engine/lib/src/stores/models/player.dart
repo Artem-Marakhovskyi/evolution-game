@@ -1,8 +1,8 @@
-import 'package:evolution_engine/src/stores/models/animal_card.dart';
+import 'package:evolution_engine/src/stores/models/cards/animal_card.dart';
 import 'package:evolution_engine/src/stores/models/identifiable.dart';
-import 'package:evolution_engine/src/stores/models/deck_card.dart';
+import 'package:evolution_engine/src/stores/models/cards/deck_card.dart';
 
-class Player extends Identifiable {
+abstract class Player extends Identifiable {
   static const int cardsToBePushedWhenEmpty = 6;
 
   @override
@@ -20,15 +20,15 @@ class Player extends Identifiable {
       ? cardsToBePushedWhenEmpty
       : animals.where((x) => x.canSpawn).length + 1;
 
-  bool get hasPassedThisRound => false;
+  bool get hasPassedThisRound;
 
   void pushCards(DeckCard card) {
     cards.add(card);
   }
 
-  void playHandCard() {}
+  void playHandCard();
 
-  void removeHungryAnimals() {}
+  void removeHungryAnimals();
 
-  void spawnMandatoryAnimals() {}
+  void spawnMandatoryAnimals();
 }

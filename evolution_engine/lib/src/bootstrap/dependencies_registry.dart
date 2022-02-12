@@ -9,13 +9,11 @@ import '../domain/die.dart';
 import 'ambient_context.dart';
 
 class DependenciesRegistry {
-  DependenciesRegistry([DependenciesExternalModule? externalModules]) {
+  DependenciesRegistry(DependenciesExternalModule externalModules) {
     GetIt.I.registerFactory<Die>(() => Die(1));
     GetIt.I.registerSingleton(Log());
     GetIt.I.registerSingleton(EventsService(GetIt.I.get()));
     GetIt.I.registerSingleton(AmbientContext());
-
-    externalModules ??= DependenciesExternalModule();
 
     GetIt.I.registerSingleton<OutputWriter>(externalModules.getOutputWriter());
     GetIt.I.registerSingleton<InputReader>(externalModules.getInputReader());
@@ -24,9 +22,9 @@ class DependenciesRegistry {
   }
 }
 
-class DependenciesExternalModule {
+abstract class DependenciesExternalModule {
   CardsStore getCardsStore() => CardsStore();
-  PlayersStore getPlayersStore() => PlayersStore();
-  OutputWriter getOutputWriter() => OutputWriter(GetIt.I.get<Log>());
-  InputReader getInputReader() => InputReader();
+  PlayersStore getPlayersStore();
+  OutputWriter getOutputWriter();
+  InputReader getInputReader();
 }

@@ -17,7 +17,7 @@ class Game {
   late final Die _die;
   final List<Player> _players = <Player>[];
 
-  Game(DependenciesExternalModule? dependenciesExternalModule) {
+  Game(DependenciesExternalModule dependenciesExternalModule) {
     var _ = DependenciesRegistry(dependenciesExternalModule);
 
     _die = GetIt.I.get<Die>();

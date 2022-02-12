@@ -1,41 +1,64 @@
-import 'models/card_kinds.dart';
-import 'models/deck_card.dart';
-import 'models/tuple_deck_card.dart';
+import 'store.dart';
+import 'models/cards/card_kinds.dart';
+import 'models/cards/deck_card.dart';
+import 'models/cards/tuple_deck_card.dart';
 
-class CardsStore {
-  final Map<DeckCard, int> _cardsSet = <DeckCard, int>{
-    DeckCard(CardKinds.CAMOUFLAGE): 4,
-    DeckCard(CardKinds.BURROWING): 4,
-    DeckCard(CardKinds.SHARP_VISION): 4,
-    DeckCard(CardKinds.SYMBIOSIS): 4,
-    DeckCard(CardKinds.PIRACY): 4,
-    DeckCard(CardKinds.GRAZING): 4,
-    DeckCard(CardKinds.TAIL_LOSS): 4,
-    DeckCard(CardKinds.HIBERNATION_ABILITY): 4,
-    DeckCard(CardKinds.POISONOUS): 4,
-    DeckCard(CardKinds.COMMUNICATION): 4,
-    DeckCard(CardKinds.SCAVENGER): 4,
-    DeckCard(CardKinds.RUNNING): 4,
-    DeckCard(CardKinds.MIMICRY): 4,
-    DeckCard(CardKinds.SWIMMING): 8,
-    TupleDeckCard(CardKinds.PARASITE, CardKinds.CARNIVOROUS): 4,
-    TupleDeckCard(CardKinds.PARASITE, CardKinds.FAT_TISSUE): 4,
-    TupleDeckCard(CardKinds.COOPERATION, CardKinds.CARNIVOROUS): 4,
-    TupleDeckCard(CardKinds.COOPERATION, CardKinds.FAT_TISSUE): 4,
-    TupleDeckCard(CardKinds.HIGH_BODY_WEIGHT, CardKinds.CARNIVOROUS): 4,
-    TupleDeckCard(CardKinds.HIGH_BODY_WEIGHT, CardKinds.FAT_TISSUE): 4,
-    DeckCard(CardKinds.FLIGHTY): 4,
-    DeckCard(CardKinds.HOMEOTHERMY): 4,
-    DeckCard(CardKinds.R_STRATEGY): 4,
+class CardsStore extends Store<DeckCard> {
+  final Map<_DeckCardTemplate, int> _cardsSet = <_DeckCardTemplate, int>{
+    _DeckCardTemplate.single(CardKinds.CAMOUFLAGE): 4,
+    _DeckCardTemplate.single(CardKinds.BURROWING): 4,
+    _DeckCardTemplate.single(CardKinds.SHARP_VISION): 4,
+    _DeckCardTemplate.single(CardKinds.SYMBIOSIS): 4,
+    _DeckCardTemplate.single(CardKinds.PIRACY): 4,
+    _DeckCardTemplate.single(CardKinds.GRAZING): 4,
+    _DeckCardTemplate.single(CardKinds.TAIL_LOSS): 4,
+    _DeckCardTemplate.single(CardKinds.HIBERNATION_ABILITY): 4,
+    _DeckCardTemplate.single(CardKinds.POISONOUS): 4,
+    _DeckCardTemplate.single(CardKinds.COMMUNICATION): 4,
+    _DeckCardTemplate.single(CardKinds.SCAVENGER): 4,
+    _DeckCardTemplate.single(CardKinds.RUNNING): 4,
+    _DeckCardTemplate.single(CardKinds.MIMICRY): 4,
+    _DeckCardTemplate.single(CardKinds.SWIMMING): 8,
+    _DeckCardTemplate.tuple(CardKinds.PARASITE, CardKinds.CARNIVOROUS): 4,
+    _DeckCardTemplate.tuple(CardKinds.PARASITE, CardKinds.FAT_TISSUE): 4,
+    _DeckCardTemplate.tuple(CardKinds.COOPERATION, CardKinds.CARNIVOROUS): 4,
+    _DeckCardTemplate.tuple(CardKinds.COOPERATION, CardKinds.FAT_TISSUE): 4,
+    _DeckCardTemplate.tuple(CardKinds.HIGH_BODY_WEIGHT, CardKinds.CARNIVOROUS):
+        4,
+    _DeckCardTemplate.tuple(CardKinds.HIGH_BODY_WEIGHT, CardKinds.FAT_TISSUE):
+        4,
+    _DeckCardTemplate.single(CardKinds.FLIGHTY): 4,
+    _DeckCardTemplate.single(CardKinds.HOMEOTHERMY): 4,
+    _DeckCardTemplate.single(CardKinds.R_STRATEGY): 4,
   };
 
   List<DeckCard> _cards = [];
 
   CardsStore() {
-    for (var anyCard in _cardsSet.keys) {}
+    for (var template in _cardsSet.keys) {
+      for (var i = 0; i < _cardsSet[template]!; i++) {
+        _cards.add(template.toDeckCard(i.toString()));
+      }
+    }
   }
 
+  @override
   Future<List<DeckCard>> fetch() {
     return Future.value(_cards);
+  }
+}
+
+class _DeckCardTemplate {
+  final CardKinds ego;
+  final CardKinds alterEgo;
+  _DeckCardTemplate.tuple(this.ego, this.alterEgo);
+  _DeckCardTemplate.single(CardKinds ego) : this.tuple(ego, CardKinds.NONE);
+
+  DeckCard toDeckCard(String surrogateId) {
+    if (alterEgo == CardKinds.NONE) {
+      return DeckCard(ego, surrogateId);
+    } else {
+      return TupleDeckCard(ego, alterEgo, surrogateId);
+    }
   }
 }

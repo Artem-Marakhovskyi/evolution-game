@@ -1,4 +1,4 @@
-import 'package:evolution_engine/src/stores/models/card_kinds.dart';
+import 'package:evolution_engine/src/stores/models/cards/card_kinds.dart';
 
 class AttributeCard {
   final CardKinds kind;
