@@ -1,5 +1,3 @@
-import 'package:get_it/get_it.dart';
-
 import 'die.dart';
 
 class Feeder {
@@ -17,8 +15,7 @@ class Feeder {
 
   get foodCount => _currentFoodCount;
 
-  Feeder.fromPlayers(int count) {
-    final die = GetIt.I.get<Die>();
+  Feeder.fromPlayers(Die die, int count) {
     final rule = _feederInitRules[count]!;
     _currentFoodCount = rule.extraCount;
     for (var i = 0; i < rule.dieCount; i++) {

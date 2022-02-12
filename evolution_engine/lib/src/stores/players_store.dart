@@ -1,4 +1,4 @@
-import '../player.dart';
+import '../../evolution_engine.dart';
 import 'store.dart';
 
 class PlayersStore implements Store<Player> {

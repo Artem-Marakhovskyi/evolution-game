@@ -15,7 +15,7 @@
 			},
 			"problemMatcher": [],
 			"label": "dart: generate serialization code",
-			"detail": "evolution_heart"
+			"detail": "evolution_engine"
 		}
 	]
 }

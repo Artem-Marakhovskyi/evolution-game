@@ -1,13 +1,14 @@
 import 'dart:collection';
 
+import 'package:evolution_engine/src/stores/models/single_card.dart';
+
 import '../../evolution_engine.dart';
-import 'entities/cards/card.dart';
 
 class CardsDeck {
-  late final Queue<Card> _cards;
+  late final Queue<SingleCard> _cards;
 
-  CardsDeck(List<Card> cards) {
-    _cards = Queue<Card>();
+  CardsDeck(List<SingleCard> cards) {
+    _cards = Queue<SingleCard>();
     _cards.addAll([...cards]..shuffle());
   }
 
@@ -21,7 +22,7 @@ class CardsDeck {
 
   bool canTakeCards(int count) => _cards.length >= count;
 
-  Card? pop(int count) {
+  SingleCard? pop(int count) {
     if (canTakeCards(count)) {
       return null;
     }

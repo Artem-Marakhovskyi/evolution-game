@@ -1,6 +1,5 @@
-import 'package:evolution_heart/src/domain/entities/identifiable.dart';
-
-import 'entities/cards/card.dart';
+import 'package:evolution_engine/src/stores/models/identifiable.dart';
+import 'package:evolution_engine/src/stores/models/single_card.dart';
 
 class Player extends Identifiable {
   static const int cardsToBePushedWhenEmpty = 6;
@@ -12,10 +11,10 @@ class Player extends Identifiable {
 
   Player(this.name);
 
-  List<Card> cards = <Card>[];
+  List<SingleCard> cards = <SingleCard>[];
 
   int get cardsRequired =>
       cards.isEmpty ? cardsToBePushedWhenEmpty : cards.length + 1;
 
-  void pushCards(Card? pop) {}
+  void pushCards(SingleCard? pop) {}
 }

@@ -8,16 +8,12 @@ part 'game_state.g.dart';
 class GameState {
   final int currentRound;
   final String currentPhase;
-
   final List<PlayerState> playersOrder;
 
-  GameState({this.dateOfBirth});
+  GameState(this.currentRound, this.currentPhase, this.playersOrder);
 
-  /// Connect the generated [_$PersonFromJson] function to the `fromJson`
-  /// factory.
   factory GameState.fromJson(Map<String, dynamic> json) =>
       _$GameStateFromJson(json);
 
-  /// Connect the generated [_$PersonToJson] function to the `toJson` method.
   Map<String, dynamic> toJson() => _$GameStateToJson(this);
 }

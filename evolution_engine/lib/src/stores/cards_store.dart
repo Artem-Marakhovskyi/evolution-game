@@ -1,6 +1,6 @@
-import 'package:evolution_heart/src/domain/entities/cards/card_kinds.dart';
-
-import '../entities/cards/card.dart';
+import 'models/card_kinds.dart';
+import 'models/single_card.dart';
+import 'models/tuple_card.dart';
 
 class CardsStore {
   final Map<SingleCard, int> _cardsSet = <SingleCard, int>{
@@ -29,23 +29,13 @@ class CardsStore {
     SingleCard(CardKinds.R_STRATEGY): 4,
   };
 
-  List<Card> _cards = [];
+  List<SingleCard> _cards = [];
 
   CardsStore() {
-    _cards = [Card(), Card(), Card()];
+    _cards = [];
   }
 
-  Future<List<Card>> fetch() {
+  Future<List<SingleCard>> fetch() {
     return Future.value(_cards);
   }
-}
-
-class TupleComposite extends SingleCard {
-  final CardKinds second;
-  TupleComposite(CardKinds first, this.second) : super(first);
-}
-
-class SingleCard {
-  final CardKinds first;
-  SingleCard(this.first);
 }

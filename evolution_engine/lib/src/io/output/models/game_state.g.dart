@@ -7,11 +7,15 @@ part of 'game_state.dart';
 // **************************************************************************
 
 GameState _$GameStateFromJson(Map<String, dynamic> json) => GameState(
-      dateOfBirth: json['dateOfBirth'] == null
-          ? null
-          : DateTime.parse(json['dateOfBirth'] as String),
+      json['currentRound'] as int,
+      json['currentPhase'] as String,
+      (json['playersOrder'] as List<dynamic>)
+          .map((e) => PlayerState.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$GameStateToJson(GameState instance) => <String, dynamic>{
-      'dateOfBirth': instance.dateOfBirth?.toIso8601String(),
+      'currentRound': instance.currentRound,
+      'currentPhase': instance.currentPhase,
+      'playersOrder': instance.playersOrder,
     };
