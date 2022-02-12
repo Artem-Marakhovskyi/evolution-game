@@ -4,7 +4,7 @@ class ConsolePlayer extends Player {
   ConsolePlayer(String name) : super(name);
 
   @override
-  bool get hasPassedThisRound => throw UnimplementedError();
+  bool get hasPassedThisRound => true;
 
   @override
   void playHandCard() {}

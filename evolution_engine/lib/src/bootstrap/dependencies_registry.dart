@@ -7,24 +7,19 @@ import 'package:get_it/get_it.dart';
 
 import '../domain/die.dart';
 import 'ambient_context.dart';
+import 'dependencies_external_module.dart';
 
 class DependenciesRegistry {
   DependenciesRegistry(DependenciesExternalModule externalModules) {
     GetIt.I.registerFactory<Die>(() => Die(1));
-    GetIt.I.registerSingleton(Log());
-    GetIt.I.registerSingleton(EventsService(GetIt.I.get()));
-    GetIt.I.registerSingleton(AmbientContext());
+    GetIt.I.registerSingleton(EventsService(externalModules.getLog()));
+    GetIt.I.registerSingleton(
+        AmbientContext(externalModules.getLog(), GetIt.I.get<EventsService>()));
 
     GetIt.I.registerSingleton<OutputWriter>(externalModules.getOutputWriter());
     GetIt.I.registerSingleton<InputReader>(externalModules.getInputReader());
     GetIt.I.registerSingleton<CardsStore>(externalModules.getCardsStore());
     GetIt.I.registerSingleton<PlayersStore>(externalModules.getPlayersStore());
+    GetIt.I.registerSingleton<Log>(externalModules.getLog());
   }
-}
-
-abstract class DependenciesExternalModule {
-  CardsStore getCardsStore() => CardsStore();
-  PlayersStore getPlayersStore();
-  OutputWriter getOutputWriter();
-  InputReader getInputReader();
 }

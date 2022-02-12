@@ -22,8 +22,8 @@ abstract class Player extends Identifiable {
 
   bool get hasPassedThisRound;
 
-  void pushCards(DeckCard card) {
-    cards.add(card);
+  void pushCards(List<DeckCard> card) {
+    cards.addAll(card);
   }
 
   void playHandCard();

@@ -1,13 +1,14 @@
-import 'package:evolution_engine/src/domain/phases/phase_feeding.dart';
+import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/stores/models/player.dart';
 
 import 'phase.dart';
 
 class PhaseGrowth extends Phase {
   final List<Player> _players;
-  PhaseGrowth(this._players);
+  PhaseGrowth(this._players, Log log) : super(log, 'Growth');
 
   Future perform() async {
+    verbose('started');
     while (_players.any((player) => !player.hasPassedThisRound)) {
       for (var player in _players) {
         if (!player.hasPassedThisRound) {
@@ -15,5 +16,6 @@ class PhaseGrowth extends Phase {
         }
       }
     }
+    verbose('completed');
   }
 }

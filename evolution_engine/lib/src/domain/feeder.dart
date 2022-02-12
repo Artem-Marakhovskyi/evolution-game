@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'die.dart';
 
 class Feeder {
@@ -26,6 +28,9 @@ class Feeder {
   void grab(int amount) => _currentFoodCount -= amount;
 
   bool canGrab(int amount) => _currentFoodCount >= amount;
+
+  @override
+  String toString() => '<Feeder> with $_currentFoodCount';
 }
 
 class _FeederInitRule {

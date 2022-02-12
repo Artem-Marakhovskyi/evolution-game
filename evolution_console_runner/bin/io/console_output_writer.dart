@@ -10,6 +10,7 @@ class ConsoleOutputWriter extends OutputWriter {
 
   @override
   Future write(GameState gameState) {
+    // TODO: beautify
     _log.info(jsonEncode(gameState.toJson()));
 
     return Future.value();

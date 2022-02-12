@@ -23,10 +23,16 @@ class CardsDeck {
 
   bool canTakeCards(int count) => _cards.length >= count;
 
-  DeckCard pop(int count) {
-    if (canTakeCards(count)) {
+  List<DeckCard> pop(int count) {
+    if (!canTakeCards(count)) {
       return throw CardsException("There are no cards to be popped");
     }
-    return _cards.removeFirst();
+
+    var cards = <DeckCard>[];
+    for (var i = 0; i < count; i++) {
+      cards.add(_cards.removeFirst());
+    }
+
+    return cards;
   }
 }

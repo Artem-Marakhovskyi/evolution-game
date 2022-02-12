@@ -1,3 +1,4 @@
+import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/bootstrap/ambient_context.dart';
 import 'package:evolution_engine/src/domain/phases/phase_extinction.dart';
 import 'package:evolution_engine/src/domain/phases/phase_feeding.dart';
@@ -15,15 +16,19 @@ class Round {
   final List<Player> _players;
   final AmbientContext _ambientContext;
   final Die _die;
+  final Log _log;
+  final int idx;
 
-  Round(this._players, this._cardsStack, this._ambientContext, this._die);
+  Round(this.idx, this._players, this._cardsStack, this._ambientContext,
+      this._die, this._log);
 
   Future play() async {
+    _log.verbose("Round $idx started");
     // TODO: handle CardsException
-    await PhaseYoungGeneration(_players, _cardsStack).perform();
-    await PhaseGrowth(_players).perform();
-    var feeder = await PhaseSupply(_die, _players.length).getFeeder();
-    await PhaseFeeding(feeder, _players).perform();
-    await PhaseExtinction(_players).perform();
+    await PhaseYoungGeneration(_players, _cardsStack, _log).perform();
+    await PhaseGrowth(_players, _log).perform();
+    var feeder = await PhaseSupply(_die, _players.length, _log).getFeeder();
+    await PhaseFeeding(feeder, _players, _log).perform();
+    await PhaseExtinction(_players, _log).perform();
   }
 }

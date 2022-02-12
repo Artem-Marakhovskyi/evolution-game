@@ -1,9 +1,9 @@
-import 'package:evolution_engine/src/domain/phases/round.dart';
-import 'package:evolution_engine/src/domain/scores_calculator.dart';
-import 'package:evolution_engine/src/stores/cards_store.dart';
-import 'package:evolution_engine/src/stores/players_store.dart';
-import 'package:get_it/get_it.dart';
+import 'package:cross_cutting/cross_cutting.dart';
 
+import '../bootstrap/dependencies_registry.dart';
+import 'phases/round.dart';
+import 'scores_calculator.dart';
+import 'package:get_it/get_it.dart';
 import '../../evolution_engine.dart';
 import '../bootstrap/ambient_context.dart';
 import 'cards_deck.dart';
@@ -15,12 +15,14 @@ class Game {
   late final CardsStore _cardsStore;
   late final CardsDeck _cardsDeck;
   late final Die _die;
+  late final Log _log;
   final List<Player> _players = <Player>[];
 
   Game(DependenciesExternalModule dependenciesExternalModule) {
     var _ = DependenciesRegistry(dependenciesExternalModule);
 
     _die = GetIt.I.get<Die>();
+    _log = GetIt.I.get<Log>();
     _ambientContext = GetIt.I.get<AmbientContext>();
     _playersStore = GetIt.I.get<PlayersStore>();
     _cardsStore = GetIt.I.get<CardsStore>();
@@ -32,10 +34,13 @@ class Game {
   }
 
   Future start() async {
+    var roundIdx = 0;
     while (_cardsDeck.canTakeForPlayers(_players)) {
       // TODO: Prepare: players order
       var roundConfiguration = _createConfiguration();
-      await Round(_players, _cardsDeck, _ambientContext, _die).play();
+      await Round(roundIdx, _players, _cardsDeck, _ambientContext, _die, _log)
+          .play();
+      roundIdx++;
     }
 
     var scoreTable = ScoresCalculator(_players).calculate();

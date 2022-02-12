@@ -25,4 +25,4 @@ export 'package:evolution_engine/src/stores/models/cards/tuple_deck_card.dart';
 export 'src/domain/game.dart';
 
 // infra
-export 'src/bootstrap/dependencies_registry.dart';
+export 'src/bootstrap/dependencies_external_module.dart';
