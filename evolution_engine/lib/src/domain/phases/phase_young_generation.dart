@@ -14,6 +14,7 @@ class PhaseYoungGeneration extends Phase {
       for (var player in _players) {
         var card = _cardsStack.pop(player.cardsRequired);
         player.pushCards(card);
+        player.spawnMandatoryAnimals();
       }
     } else {
       throw CardsException("There are no cards in the deck");

@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
 import 'package:evolution_engine/src/stores/models/single_card.dart';
 
 import '../../evolution_engine.dart';
@@ -22,9 +23,9 @@ class CardsDeck {
 
   bool canTakeCards(int count) => _cards.length >= count;
 
-  SingleCard? pop(int count) {
+  SingleCard pop(int count) {
     if (canTakeCards(count)) {
-      return null;
+      return throw CardsException("There are no cards to be popped");
     }
     return _cards.removeFirst();
   }

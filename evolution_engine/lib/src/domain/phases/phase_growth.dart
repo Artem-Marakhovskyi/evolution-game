@@ -7,5 +7,13 @@ class PhaseGrowth extends Phase {
   final List<Player> _players;
   PhaseGrowth(this._players);
 
-  Future perform() async {}
+  Future perform() async {
+    while (_players.any((player) => !player.hasPassedThisRound)) {
+      for (var player in _players) {
+        if (!player.hasPassedThisRound) {
+          player.playHandCard();
+        }
+      }
+    }
+  }
 }

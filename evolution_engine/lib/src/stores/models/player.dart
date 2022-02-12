@@ -1,3 +1,4 @@
+import 'package:evolution_engine/src/stores/models/animal_card.dart';
 import 'package:evolution_engine/src/stores/models/identifiable.dart';
 import 'package:evolution_engine/src/stores/models/single_card.dart';
 
@@ -13,8 +14,21 @@ class Player extends Identifiable {
 
   List<SingleCard> cards = <SingleCard>[];
 
-  int get cardsRequired =>
-      cards.isEmpty ? cardsToBePushedWhenEmpty : cards.length + 1;
+  List<AnimalCard> animals = <AnimalCard>[];
 
-  void pushCards(SingleCard? pop) {}
+  int get cardsRequired => animals.isEmpty
+      ? cardsToBePushedWhenEmpty
+      : animals.where((x) => x.canSpawn).length + 1;
+
+  bool get hasPassedThisRound => false;
+
+  void pushCards(SingleCard card) {
+    cards.add(card);
+  }
+
+  void playHandCard() {}
+
+  void removeHungryAnimals() {}
+
+  void spawnMandatoryAnimals() {}
 }

@@ -1,4 +1,5 @@
 import 'package:evolution_engine/src/domain/phases/round.dart';
+import 'package:evolution_engine/src/domain/scores_calculator.dart';
 import 'package:evolution_engine/src/stores/cards_store.dart';
 import 'package:evolution_engine/src/stores/players_store.dart';
 import 'package:get_it/get_it.dart';
@@ -30,11 +31,14 @@ class Game {
     _players.addAll(await _playersStore.fetch());
   }
 
-  Future start() {
+  Future start() async {
     while (_cardsDeck.canTakeForPlayers(_players)) {
+      // TODO: Prepare: players order
       var roundConfiguration = _createConfiguration();
-      Round(_players, _cardsDeck, _ambientContext, _die).play();
+      await Round(_players, _cardsDeck, _ambientContext, _die).play();
     }
+
+    var scoreTable = ScoresCalculator(_players).calculate();
 
     return Future.delayed(Duration.zero, () => null);
   }

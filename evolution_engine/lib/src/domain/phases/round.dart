@@ -16,9 +16,10 @@ class Round {
   final AmbientContext _ambientContext;
   final Die _die;
 
-  Round(this._players, this._cardsStack, this._ambientContext, this._die) {}
+  Round(this._players, this._cardsStack, this._ambientContext, this._die);
 
   Future play() async {
+    // TODO: handle CardsException
     await PhaseYoungGeneration(_players, _cardsStack).perform();
     await PhaseGrowth(_players).perform();
     var feeder = await PhaseSupply(_die, _players.length).getFeeder();
