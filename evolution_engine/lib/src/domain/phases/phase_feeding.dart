@@ -9,5 +9,8 @@ class PhaseFeeding extends Phase {
   final List<Player> _players;
   PhaseFeeding(this._feeder, this._players, Log log) : super(log, 'Feeding');
 
-  Future perform() async {}
+  Future perform() async {
+    verbose("started");
+    verbose("completed");
+  }
 }

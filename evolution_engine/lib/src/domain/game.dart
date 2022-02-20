@@ -1,4 +1,5 @@
 import 'package:cross_cutting/cross_cutting.dart';
+import 'package:evolution_engine/src/io/output/state_converter.dart';
 
 import '../bootstrap/dependencies_registry.dart';
 import 'phases/round.dart';
@@ -16,6 +17,7 @@ class Game {
   late final CardsDeck _cardsDeck;
   late final Die _die;
   late final Log _log;
+  late final OutputWriter _outputWriter;
   final List<Player> _players = <Player>[];
 
   Game(DependenciesExternalModule dependenciesExternalModule) {
@@ -26,6 +28,7 @@ class Game {
     _ambientContext = GetIt.I.get<AmbientContext>();
     _playersStore = GetIt.I.get<PlayersStore>();
     _cardsStore = GetIt.I.get<CardsStore>();
+    _outputWriter = GetIt.I.get<OutputWriter>();
   }
 
   Future prepare() async {
@@ -34,13 +37,18 @@ class Game {
   }
 
   Future start() async {
-    var roundIdx = 0;
+    var currentRoundIdx = 0;
     while (_cardsDeck.canTakeForPlayers(_players)) {
       // TODO: Prepare: players order
       var roundConfiguration = _createConfiguration();
-      await Round(roundIdx, _players, _cardsDeck, _ambientContext, _die, _log)
+      await Round(currentRoundIdx, _players, _cardsDeck, _ambientContext, _die,
+              _log)
           .play();
-      roundIdx++;
+
+      writeState(
+          _outputWriter, "no phase", currentRoundIdx, _players, _cardsDeck);
+
+      currentRoundIdx++;
     }
 
     var scoreTable = ScoresCalculator(_players).calculate();

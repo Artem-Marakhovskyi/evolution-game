@@ -1,3 +1,4 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:evolution_engine/src/stores/models/identifiable.dart';
 
 import 'card_kinds.dart';
@@ -9,5 +10,5 @@ class DeckCard extends Identifiable {
   DeckCard(this.ego, this._surrogateId);
 
   @override
-  String get id => '$_surrogateId.$ego';
+  String get id => '$_surrogateId.${ego.stringified}';
 }

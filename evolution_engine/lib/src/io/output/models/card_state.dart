@@ -6,8 +6,9 @@ part 'card_state.g.dart';
 class CardState {
   String ego;
   String alterEgo;
+  String id;
 
-  CardState(this.ego, this.alterEgo);
+  CardState(this.ego, this.alterEgo, this.id);
 
   factory CardState.fromJson(Map<String, dynamic> json) =>
       _$CardStateFromJson(json);

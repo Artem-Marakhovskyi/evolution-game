@@ -29,7 +29,8 @@ abstract class Player extends Identifiable {
     eventsService.raise("received_cards", {
       "player": id,
       "cards_total_count": cards.length.toString(),
-      "cards": cards.map((card) => card.id).join(",")
+      "cards": cards.map((card) => card.id).join(","),
+      "animals": animals.map((animal) => animal.toString()).join('\n')
     });
   }
 

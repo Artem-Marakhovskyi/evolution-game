@@ -13,4 +13,8 @@ class AnimalCard {
   void addAttribute(AttributeCard attributeCard) {
     attrs.add(attributeCard);
   }
+
+  @override
+  String toString() =>
+      "${card.id} -> ${attrs.map((attr) => attr.kind).join(",")}";
 }

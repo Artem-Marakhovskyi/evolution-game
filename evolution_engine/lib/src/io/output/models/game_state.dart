@@ -9,8 +9,10 @@ class GameState {
   final int currentRound;
   final String currentPhase;
   final List<PlayerState> playersOrder;
-
-  GameState(this.currentRound, this.currentPhase, this.playersOrder);
+  final int cardsDeckOriginLength;
+  final int cardsDeckCurrentLength;
+  GameState(this.currentRound, this.currentPhase, this.playersOrder,
+      this.cardsDeckOriginLength, this.cardsDeckCurrentLength);
 
   factory GameState.fromJson(Map<String, dynamic> json) =>
       _$GameStateFromJson(json);

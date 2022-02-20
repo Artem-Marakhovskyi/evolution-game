@@ -8,10 +8,16 @@ import '../../evolution_engine.dart';
 class CardsDeck {
   late final Queue<DeckCard> _cards;
 
-  CardsDeck(List<DeckCard> cards) {
+  int _originLength;
+
+  CardsDeck(List<DeckCard> cards) : _originLength = cards.length {
     _cards = Queue<DeckCard>();
     _cards.addAll([...cards]);
   }
+
+  int get originLength => _originLength;
+
+  int get length => _cards.length;
 
   bool canTakeForPlayers(List<Player> players) {
     var cardsRequired = players

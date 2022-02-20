@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:enum_to_string/enum_to_string.dart';
+
 enum CardKinds {
   NONE,
 
@@ -67,5 +69,9 @@ enum CardKinds {
   R_STRATEGY,
 
   /// Теплокровность
-  HOMEOTHERMY
+  HOMEOTHERMY,
+}
+
+extension CardKindsExtension on CardKinds {
+  String get stringified => EnumToString.convertToString(this);
 }

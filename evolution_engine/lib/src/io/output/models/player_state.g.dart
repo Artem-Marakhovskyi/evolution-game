@@ -7,7 +7,6 @@ part of 'player_state.dart';
 // **************************************************************************
 
 PlayerState _$PlayerStateFromJson(Map<String, dynamic> json) => PlayerState(
-      (json['animalsOrder'] as List<dynamic>).map((e) => e as String).toList(),
       (json['handsCards'] as List<dynamic>)
           .map((e) => CardState.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -18,7 +17,6 @@ PlayerState _$PlayerStateFromJson(Map<String, dynamic> json) => PlayerState(
 
 Map<String, dynamic> _$PlayerStateToJson(PlayerState instance) =>
     <String, dynamic>{
-      'animalsOrder': instance.animalsOrder,
       'handsCards': instance.handsCards,
       'animals': instance.animals,
     };

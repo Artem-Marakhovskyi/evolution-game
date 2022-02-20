@@ -7,5 +7,5 @@ class TupleDeckCard extends DeckCard {
       : super(ego, surrogateId);
 
   @override
-  String get id => '${super.id}.$alterEgo';
+  String get id => '${super.id}.${alterEgo.stringified}';
 }

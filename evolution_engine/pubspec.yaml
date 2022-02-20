@@ -19,6 +19,7 @@ dependencies:
   yaml: ^3.1.0
   json_serializable: ^6.1.4  
   json_annotation: ^4.4.0
+  enum_to_string: ^2.0.1
 
 dev_dependencies:
   lints: ^1.0.0

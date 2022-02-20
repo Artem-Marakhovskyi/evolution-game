@@ -7,11 +7,10 @@ part 'player_state.g.dart';
 
 @JsonSerializable()
 class PlayerState {
-  final List<String> animalsOrder;
   final List<CardState> handsCards;
   final List<AnimalState> animals;
 
-  PlayerState(this.animalsOrder, this.handsCards, this.animals);
+  PlayerState(this.handsCards, this.animals);
 
   factory PlayerState.fromJson(Map<String, dynamic> json) =>
       _$PlayerStateFromJson(json);
