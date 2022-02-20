@@ -5,9 +5,11 @@ import 'dependencies_console_module.dart';
 import 'stores/models/console_player.dart';
 
 Future<void> main(List<String> arguments) async {
-  var players = getConsolePlayers();
-  var consoleDependencies = DependenciesConsoleModule(players);
-  var log = consoleDependencies.getLog();
+  var log = Log();
+  var eventsService = EventsService(log);
+  var players = getConsolePlayers(eventsService);
+  var consoleDependencies =
+      DependenciesConsoleModule(players, log, eventsService);
   var game = Game(consoleDependencies);
 
   log.verbose("Game is being prepared...");
@@ -17,4 +19,7 @@ Future<void> main(List<String> arguments) async {
   log.verbose("Game completed");
 }
 
-getConsolePlayers() => [ConsolePlayer("Player_A"), ConsolePlayer("Player_B")];
+getConsolePlayers(EventsService eventsService) => [
+      ConsolePlayer("Player_A", eventsService),
+      ConsolePlayer("Player_B", eventsService),
+    ];

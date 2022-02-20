@@ -9,6 +9,7 @@ environment:
 
 dependencies:
   simple_logger: ^1.9.0
+  get_it: ^7.2.0
 
 dev_dependencies:
   lints: ^1.0.0

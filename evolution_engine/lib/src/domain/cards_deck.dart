@@ -10,7 +10,7 @@ class CardsDeck {
 
   CardsDeck(List<DeckCard> cards) {
     _cards = Queue<DeckCard>();
-    _cards.addAll([...cards]..shuffle());
+    _cards.addAll([...cards]);
   }
 
   bool canTakeForPlayers(List<Player> players) {

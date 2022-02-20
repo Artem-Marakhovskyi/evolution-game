@@ -7,7 +7,6 @@ import 'package:evolution_engine/src/domain/phases/phase_supply.dart';
 import '../../../evolution_engine.dart';
 import '../cards_deck.dart';
 import '../die.dart';
-import '../feeder.dart';
 import 'phase_growth.dart';
 import 'phase_young_generation.dart';
 
@@ -23,12 +22,13 @@ class Round {
       this._die, this._log);
 
   Future play() async {
-    _log.verbose("Round $idx started");
+    _log.verbose("================= Round $idx STARTED =================");
     // TODO: handle CardsException
     await PhaseYoungGeneration(_players, _cardsStack, _log).perform();
     await PhaseGrowth(_players, _log).perform();
     var feeder = await PhaseSupply(_die, _players.length, _log).getFeeder();
     await PhaseFeeding(feeder, _players, _log).perform();
     await PhaseExtinction(_players, _log).perform();
+    _log.verbose("================= Round $idx COMPLETED =================");
   }
 }

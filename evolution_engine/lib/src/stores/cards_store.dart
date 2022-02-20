@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'store.dart';
 import 'models/cards/card_kinds.dart';
 import 'models/cards/deck_card.dart';
@@ -34,6 +36,10 @@ class CardsStore extends Store<DeckCard> {
 
   List<DeckCard> _cards = [];
 
+  List<DeckCard> get cards {
+    return UnmodifiableListView(_cards);
+  }
+
   CardsStore() {
     for (var template in _cardsSet.keys) {
       for (var i = 0; i < _cardsSet[template]!; i++) {
@@ -44,6 +50,7 @@ class CardsStore extends Store<DeckCard> {
 
   @override
   Future<List<DeckCard>> fetch() {
+    _cards.shuffle();
     return Future.value(_cards);
   }
 }
