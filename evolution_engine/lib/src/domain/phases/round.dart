@@ -25,10 +25,10 @@ class Round {
     _log.verbose("================= Round $idx STARTED =================");
     // TODO: handle CardsException
     await PhaseYoungGeneration(_players, _cardsStack, _log).perform();
-    await PhaseGrowth(_players, _log).perform();
-    var feeder = await PhaseSupply(_die, _players.length, _log).getFeeder();
-    await PhaseFeeding(feeder, _players, _log).perform();
-    await PhaseExtinction(_players, _log).perform();
+    // await PhaseGrowth(_players, _log).perform();
+    // var feeder = await PhaseSupply(_die, _players.length, _log).getFeeder();
+    // await PhaseFeeding(feeder, _players, _log).perform();
+    // await PhaseExtinction(_players, _log).perform();
     _log.verbose("================= Round $idx COMPLETED =================");
   }
 }

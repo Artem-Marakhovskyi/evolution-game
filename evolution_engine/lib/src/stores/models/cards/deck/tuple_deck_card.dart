@@ -1,4 +1,4 @@
-import 'card_kinds.dart';
+import '../card_kinds.dart';
 import 'deck_card.dart';
 
 class TupleDeckCard extends DeckCard {

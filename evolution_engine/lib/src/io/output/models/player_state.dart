@@ -9,8 +9,9 @@ part 'player_state.g.dart';
 class PlayerState {
   final List<CardState> handsCards;
   final List<AnimalState> animals;
+  final String id;
 
-  PlayerState(this.handsCards, this.animals);
+  PlayerState(this.handsCards, this.animals, this.id);
 
   factory PlayerState.fromJson(Map<String, dynamic> json) =>
       _$PlayerStateFromJson(json);

@@ -4,10 +4,11 @@ class Log {
   final _logger = SimpleLogger();
 
   Log() {
-    _logger.setLevel(Level.ALL,
-        stackTraceLevel: Level.SEVERE,
-        includeCallerInfo: true,
-        callerInfoFrameLevelOffset: 2);
+    // TODO: stack trace + caller info
+    _logger.setLevel(
+      Level.ALL,
+    );
+    _logger.formatter = (info) => '${DateTime.now()} ${info.message}';
   }
 
   void verbose(String message) {

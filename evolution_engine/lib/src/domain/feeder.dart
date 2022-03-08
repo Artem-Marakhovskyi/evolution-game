@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'die.dart';
 
 class Feeder {

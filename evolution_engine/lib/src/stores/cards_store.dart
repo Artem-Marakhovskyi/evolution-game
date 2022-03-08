@@ -2,8 +2,8 @@ import 'dart:collection';
 
 import 'store.dart';
 import 'models/cards/card_kinds.dart';
-import 'models/cards/deck_card.dart';
-import 'models/cards/tuple_deck_card.dart';
+import 'models/cards/deck/deck_card.dart';
+import 'models/cards/deck/tuple_deck_card.dart';
 
 class CardsStore extends Store<DeckCard> {
   final Map<_DeckCardTemplate, int> _cardsSet = <_DeckCardTemplate, int>{
@@ -34,7 +34,7 @@ class CardsStore extends Store<DeckCard> {
     _DeckCardTemplate.single(CardKinds.R_STRATEGY): 4,
   };
 
-  List<DeckCard> _cards = [];
+  final List<DeckCard> _cards = [];
 
   List<DeckCard> get cards {
     return UnmodifiableListView(_cards);
@@ -49,12 +49,17 @@ class CardsStore extends Store<DeckCard> {
   }
 
   @override
+
+  /// Shuffles the cards and returns it.
   Future<List<DeckCard>> fetch() {
     _cards.shuffle();
     return Future.value(_cards);
   }
 }
 
+/// Provides a template from which a deck card can be created.
+/// It says "there are should be N cards of this face/reverse".
+/// It is a responsibility of [CardsStore] to create deck from templates.
 class _DeckCardTemplate {
   final CardKinds ego;
   final CardKinds alterEgo;

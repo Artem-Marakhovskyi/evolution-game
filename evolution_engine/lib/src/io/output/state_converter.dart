@@ -25,7 +25,7 @@ void writeState(OutputWriter outputWriter, String phase, int currentRoundIdx,
       animalStates.add(animalState);
     }
 
-    var playerState = PlayerState(cardStates, animalStates);
+    var playerState = PlayerState(cardStates, animalStates, player.id);
     playerStates.add(playerState);
   }
 
