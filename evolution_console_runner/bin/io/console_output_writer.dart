@@ -12,8 +12,8 @@ class ConsoleOutputWriter extends OutputWriter {
 
   @override
   Future write(GameState gameState) {
-    _log.info(gameState.toJson());
-    var output = GameStateOutput();
+    _log.info(jsonEncode(gameState.toJson()));
+    var output = GameStateOutput(_log);
     output.write(gameState);
 
     return Future.value();
