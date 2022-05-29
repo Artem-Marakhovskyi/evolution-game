@@ -9,7 +9,7 @@ Future<void> main(List<String> arguments) async {
   var log = Log();
   var eventsService = EventsService(log);
   var inputReader = ConsoleInputReader();
-  var players = getConsolePlayers(inputReader, eventsService);
+  var players = getConsolePlayers(inputReader, eventsService, log);
   var consoleDependencies =
       DependenciesConsoleModule(players, log, eventsService);
   var game = Game(consoleDependencies);
@@ -22,8 +22,8 @@ Future<void> main(List<String> arguments) async {
 }
 
 getConsolePlayers(
-        ConsoleInputReader inputReader, EventsService eventsService) =>
+        ConsoleInputReader inputReader, EventsService eventsService, Log log) =>
     [
-      ConsolePlayer("Player_A", inputReader, eventsService),
-      ConsolePlayer("Player_B", inputReader, eventsService),
+      ConsolePlayer("Player_A", inputReader, eventsService, log),
+      ConsolePlayer("Player_B", inputReader, eventsService, log),
     ];

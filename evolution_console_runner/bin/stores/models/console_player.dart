@@ -7,17 +7,20 @@ import '../../io/console_input_reader.dart';
 
 class ConsolePlayer extends Player {
   final ConsoleInputReader _inputReader;
+  final Log _log;
 
-  ConsolePlayer(
-      String name, ConsoleInputReader inputReader, EventsService eventsService)
+  ConsolePlayer(String name, ConsoleInputReader inputReader,
+      EventsService eventsService, this._log)
       : _inputReader = inputReader,
         super(name, eventsService);
 
   @override
-  bool get hasPassedThisRound => true;
+  bool get hasPassedThisRound => false;
 
   @override
-  void playHandCard() {}
+  void playHandCard() {
+    _log.info("${this.name} has been asked to play hand card");
+  }
 
   @override
   void removeHungryAnimals() {
