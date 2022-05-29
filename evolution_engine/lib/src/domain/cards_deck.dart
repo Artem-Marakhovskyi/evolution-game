@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
-import 'package:evolution_engine/src/stores/models/cards/deck/deck_card.dart';
 
 import '../../evolution_engine.dart';
 

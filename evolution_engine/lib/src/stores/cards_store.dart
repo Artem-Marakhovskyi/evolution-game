@@ -6,7 +6,26 @@ import 'models/cards/deck/deck_card.dart';
 import 'models/cards/deck/tuple_deck_card.dart';
 
 class CardsStore extends Store<DeckCard> {
-  final Map<_DeckCardTemplate, int> _cardsSet = <_DeckCardTemplate, int>{
+  final List<DeckCard> _cards = [];
+
+  List<DeckCard> get cards => UnmodifiableListView(_cards);
+
+  CardsStore() {
+    var setTemplate = _DeckCardTemplateSet().cardsSet;
+    for (var template in setTemplate.keys) {
+      for (var i = 0; i < setTemplate[template]!; i++) {
+        _cards.add(template.toDeckCard(i.toString()));
+      }
+    }
+    _cards.shuffle();
+  }
+
+  @override
+  Future<List<DeckCard>> fetch() => Future.value(_cards);
+}
+
+class _DeckCardTemplateSet {
+  final Map<_DeckCardTemplate, int> cardsSet = <_DeckCardTemplate, int>{
     _DeckCardTemplate.single(CardKinds.CAMOUFLAGE): 4,
     _DeckCardTemplate.single(CardKinds.BURROWING): 4,
     _DeckCardTemplate.single(CardKinds.SHARP_VISION): 4,
@@ -33,28 +52,6 @@ class CardsStore extends Store<DeckCard> {
     _DeckCardTemplate.single(CardKinds.HOMEOTHERMY): 4,
     _DeckCardTemplate.single(CardKinds.R_STRATEGY): 4,
   };
-
-  final List<DeckCard> _cards = [];
-
-  List<DeckCard> get cards {
-    return UnmodifiableListView(_cards);
-  }
-
-  CardsStore() {
-    for (var template in _cardsSet.keys) {
-      for (var i = 0; i < _cardsSet[template]!; i++) {
-        _cards.add(template.toDeckCard(i.toString()));
-      }
-    }
-  }
-
-  @override
-
-  /// Shuffles the cards and returns it.
-  Future<List<DeckCard>> fetch() {
-    _cards.shuffle();
-    return Future.value(_cards);
-  }
 }
 
 /// Provides a template from which a deck card can be created.

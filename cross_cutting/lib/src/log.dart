@@ -4,7 +4,6 @@ class Log {
   final _logger = SimpleLogger();
 
   Log() {
-    // TODO: stack trace + caller info
     _logger.setLevel(
       Level.ALL,
     );
