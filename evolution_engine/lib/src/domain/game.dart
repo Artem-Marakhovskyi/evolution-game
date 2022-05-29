@@ -11,6 +11,8 @@ import 'entities/cards_deck.dart';
 import 'entities/die.dart';
 
 class Game {
+  final GetIt resolver;
+
   late final PlayersStore _playersStore;
   late final AmbientContext _ambientContext;
   late final CardsStore _cardsStore;
@@ -22,15 +24,13 @@ class Game {
 
   Game(
     DependenciesExternalModule dependenciesExternalModule,
-  ) {
-    var _ = DependenciesRegistry(dependenciesExternalModule);
-
-    _die = GetIt.I.get<Die>();
-    _log = GetIt.I.get<Log>();
-    _ambientContext = GetIt.I.get<AmbientContext>();
-    _playersStore = GetIt.I.get<PlayersStore>();
-    _cardsStore = GetIt.I.get<CardsStore>();
-    _outputWriter = GetIt.I.get<OutputWriter>();
+  ) : resolver = DependenciesRegistry(dependenciesExternalModule).resolver {
+    _die = resolver.get<Die>();
+    _log = resolver.get<Log>();
+    _ambientContext = resolver.get<AmbientContext>();
+    _playersStore = resolver.get<PlayersStore>();
+    _cardsStore = resolver.get<CardsStore>();
+    _outputWriter = resolver.get<OutputWriter>();
   }
 
   Future prepare() async {

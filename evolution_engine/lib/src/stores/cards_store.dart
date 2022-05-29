@@ -9,15 +9,21 @@ class CardsStore extends Store<DeckCard> {
 
   List<DeckCard> get cards => UnmodifiableListView(_cards);
 
-  CardsStore() {
+  CardsStore(List<DeckCard> cards) {
+    _cards.addAll(cards);
+  }
+
+  CardsStore.fromShuffled() {
     var setTemplate = _DeckCardTemplateSet().cardsSet;
     for (var template in setTemplate.keys) {
       for (var i = 0; i < setTemplate[template]!; i++) {
         _cards.add(template.toDeckCard(i.toString()));
       }
     }
-    _cards.shuffle();
+    shuffle();
   }
+
+  void shuffle() => _cards.shuffle();
 
   @override
   Future<List<DeckCard>> fetch() => Future.value(_cards);

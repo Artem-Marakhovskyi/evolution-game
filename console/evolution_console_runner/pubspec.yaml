@@ -9,16 +9,21 @@ environment:
 publish_to: none
 
 dependencies:
+  evolution_console:
+      # git: 
+      #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+      #   path: evolution_console
+      path: ../evolution_console
   cross_cutting:
     # git: 
     #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
     #   path: cross_cutting
-    path: ../cross_cutting
+    path: ../../cross_cutting
   evolution_engine:
     # git: 
     #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
     #   path: evolution_engine
-    path: ../evolution_engine
+    path: ../../evolution_engine
 
 dev_dependencies:
   lints: ^1.0.0

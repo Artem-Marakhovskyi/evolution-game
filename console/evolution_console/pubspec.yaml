@@ -1,0 +1,24 @@
+name: evolution_console
+description: Library for common code of consoles apps.
+version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.15.1 <3.0.0'
+
+publish_to: none
+
+dependencies:
+  cross_cutting:
+    # git: 
+    #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+    #   path: cross_cutting
+    path: ../../cross_cutting
+  evolution_engine:
+    # git: 
+    #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
+    #   path: evolution_engine
+    path: ../../evolution_engine
+
+dev_dependencies:
+  lints: ^1.0.0

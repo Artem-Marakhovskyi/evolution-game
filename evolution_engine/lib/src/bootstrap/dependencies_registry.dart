@@ -10,16 +10,19 @@ import 'ambient_context.dart';
 import 'dependencies_external_module.dart';
 
 class DependenciesRegistry {
-  DependenciesRegistry(DependenciesExternalModule externalModules) {
-    GetIt.I.registerFactory<Die>(() => Die(1));
-    GetIt.I.registerSingleton(EventsService(externalModules.getLog()));
-    GetIt.I.registerSingleton(
-        AmbientContext(externalModules.getLog(), GetIt.I.get<EventsService>()));
+  final GetIt resolver;
 
-    GetIt.I.registerSingleton<OutputWriter>(externalModules.getOutputWriter());
-    GetIt.I.registerSingleton<InputReader>(externalModules.getInputReader());
-    GetIt.I.registerSingleton<CardsStore>(externalModules.getCardsStore());
-    GetIt.I.registerSingleton<PlayersStore>(externalModules.getPlayersStore());
-    GetIt.I.registerSingleton<Log>(externalModules.getLog());
+  DependenciesRegistry(DependenciesExternalModule externalModules)
+      : resolver = GetIt.I {
+    resolver.registerFactory<Die>(() => Die(1));
+    resolver.registerSingleton(EventsService(externalModules.getLog()));
+    resolver.registerSingleton(AmbientContext(
+        externalModules.getLog(), resolver.get<EventsService>()));
+    resolver.registerSingleton<OutputWriter>(externalModules.getOutputWriter());
+    resolver.registerSingleton<InputReader>(externalModules.getInputReader());
+    resolver.registerSingleton<CardsStore>(externalModules.getCardsStore());
+    resolver.registerSingleton<Log>(externalModules.getLog());
+    resolver.registerSingleton<PlayersStore>(
+        externalModules.getPlayersStore(resolver));
   }
 }

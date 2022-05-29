@@ -1,6 +1,7 @@
 import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/domain/entities/cards/board/animal_card.dart';
 import 'package:evolution_engine/src/stores/models/identifiable.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../evolution_engine.dart';
 
@@ -8,12 +9,15 @@ abstract class Player extends Identifiable {
   static const int cardsToBePushedWhenEmpty = 6;
 
   final EventsService eventsService;
+  final Log log;
   final String name;
 
   @override
   String get id => name;
 
-  Player(this.name, this.eventsService);
+  Player(this.name, GetIt getIt)
+      : eventsService = getIt.get<EventsService>(),
+        log = getIt.get<Log>();
 
   List<DeckCard> cards = <DeckCard>[];
 

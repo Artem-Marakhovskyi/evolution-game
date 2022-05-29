@@ -5,21 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "evolution_console_runner",
-            "cwd": "evolution_console_runner",
+            "name": "console_runner",
+            "cwd": "console/evolution_console_runner",
             "request": "launch",
             "type": "dart",
             "program": "bin/evolution_console_runner.dart"
         },
         {
-            "name": "evolution_mobile",
+            "name": "console_runner_pseudo",
+            "cwd": "console/evolution_console_runner_pseudo",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/evolution_console_runner_pseudo.dart"
+        },        
+        {
+            "name": "mobile",
             "cwd": "evolution_mobile",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart"
         },
         {
-            "name": "evolution_mobile (profile mode)",
+            "name": "mobile (profile mode)",
             "cwd": "evolution_mobile",
             "request": "launch",
             "type": "dart",
@@ -27,7 +34,7 @@
             "program": "lib/main.dart"
         },
         {
-            "name": "evolution_srvr",
+            "name": "srvr",
             "cwd": "evolution_srvr",
             "request": "launch",
             "type": "dart",
