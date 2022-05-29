@@ -1,4 +1,4 @@
-import 'package:evolution_engine/src/domain/die.dart';
+import 'package:evolution_engine/src/domain/entities/die.dart';
 
 import 'package:test/test.dart';
 

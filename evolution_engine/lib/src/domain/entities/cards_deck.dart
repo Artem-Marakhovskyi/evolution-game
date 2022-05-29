@@ -2,19 +2,18 @@ import 'dart:collection';
 
 import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
 
-import '../../evolution_engine.dart';
+import '../../../evolution_engine.dart';
+import 'cards/deck/deck_card.dart';
 
 class CardsDeck {
   late final Queue<DeckCard> _cards;
 
-  int _originLength;
+  final int originLength;
 
-  CardsDeck(List<DeckCard> cards) : _originLength = cards.length {
+  CardsDeck(List<DeckCard> cards) : originLength = cards.length {
     _cards = Queue<DeckCard>();
     _cards.addAll([...cards]);
   }
-
-  int get originLength => _originLength;
 
   int get length => _cards.length;
 

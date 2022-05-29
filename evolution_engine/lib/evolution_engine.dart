@@ -19,8 +19,8 @@ export 'package:evolution_engine/src/stores/cards_store.dart';
 
 // store models
 export 'src/stores/models/player.dart';
-export 'package:evolution_engine/src/stores/models/cards/deck/deck_card.dart';
-export 'package:evolution_engine/src/stores/models/cards/deck/tuple_deck_card.dart';
+export 'package:evolution_engine/src/domain/entities/cards/deck/deck_card.dart';
+export 'package:evolution_engine/src/domain/entities/cards/deck/tuple_deck_card.dart';
 
 // domain
 export 'src/domain/game.dart';

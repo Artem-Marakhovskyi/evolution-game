@@ -1,14 +1,14 @@
 import 'package:cross_cutting/cross_cutting.dart';
-import 'package:evolution_engine/src/io/output/state_converter.dart';
+import 'package:evolution_engine/src/domain/state/game_state.dart';
 
 import '../bootstrap/dependencies_registry.dart';
 import 'phases/round.dart';
-import 'scores_calculator.dart';
+import 'entities/scores_calculator.dart';
 import 'package:get_it/get_it.dart';
 import '../../evolution_engine.dart';
 import '../bootstrap/ambient_context.dart';
-import 'cards_deck.dart';
-import 'die.dart';
+import 'entities/cards_deck.dart';
+import 'entities/die.dart';
 
 class Game {
   late final PlayersStore _playersStore;
@@ -20,7 +20,9 @@ class Game {
   late final OutputWriter _outputWriter;
   final List<Player> _players = <Player>[];
 
-  Game(DependenciesExternalModule dependenciesExternalModule) {
+  Game(
+    DependenciesExternalModule dependenciesExternalModule,
+  ) {
     var _ = DependenciesRegistry(dependenciesExternalModule);
 
     _die = GetIt.I.get<Die>();
@@ -45,8 +47,8 @@ class Game {
               _log)
           .play();
 
-      writeState(
-          _outputWriter, "no phase", currentRoundIdx, _players, _cardsDeck);
+      _outputWriter
+          .write(GameState("no phase", currentRoundIdx, _players, _cardsDeck));
 
       currentRoundIdx++;
     }

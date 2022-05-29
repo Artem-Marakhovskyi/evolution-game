@@ -5,7 +5,7 @@ import 'package:evolution_engine/src/stores/cards_store.dart';
 import 'package:evolution_engine/src/stores/players_store.dart';
 import 'package:get_it/get_it.dart';
 
-import '../domain/die.dart';
+import '../domain/entities/die.dart';
 import 'ambient_context.dart';
 import 'dependencies_external_module.dart';
 

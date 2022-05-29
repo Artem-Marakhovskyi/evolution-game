@@ -1,7 +1,7 @@
 import 'package:cross_cutting/cross_cutting.dart';
 
 import '../../../evolution_engine.dart';
-import '../feeder.dart';
+import '../entities/feeder.dart';
 import 'phase.dart';
 
 class PhaseFeeding extends Phase {

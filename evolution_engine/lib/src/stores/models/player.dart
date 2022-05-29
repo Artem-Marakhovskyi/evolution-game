@@ -1,7 +1,8 @@
 import 'package:cross_cutting/cross_cutting.dart';
-import 'package:evolution_engine/src/stores/models/cards/board/animal_card.dart';
+import 'package:evolution_engine/src/domain/entities/cards/board/animal_card.dart';
 import 'package:evolution_engine/src/stores/models/identifiable.dart';
-import 'package:evolution_engine/src/stores/models/cards/deck/deck_card.dart';
+
+import '../../../evolution_engine.dart';
 
 abstract class Player extends Identifiable {
   static const int cardsToBePushedWhenEmpty = 6;

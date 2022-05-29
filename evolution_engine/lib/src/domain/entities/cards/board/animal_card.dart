@@ -1,6 +1,6 @@
-import 'package:evolution_engine/src/stores/models/cards/board/attribute_card.dart';
-import 'package:evolution_engine/src/stores/models/cards/card_kinds.dart';
-import 'package:evolution_engine/src/stores/models/cards/deck/deck_card.dart';
+import 'package:evolution_engine/src/domain/entities/cards/board/attribute_card.dart';
+import 'package:evolution_engine/src/domain/entities/cards/deck/deck_card.dart';
+import 'package:evolution_engine/src/domain/entities/cards/deck/card_kinds.dart';
 
 class AnimalCard {
   final DeckCard card;

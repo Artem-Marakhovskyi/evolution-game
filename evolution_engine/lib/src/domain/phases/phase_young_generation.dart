@@ -2,7 +2,7 @@ import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
 
 import '../../../evolution_engine.dart';
-import '../cards_deck.dart';
+import '../entities/cards_deck.dart';
 import 'phase.dart';
 
 class PhaseYoungGeneration extends Phase {

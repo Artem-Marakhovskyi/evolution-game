@@ -1,4 +1,4 @@
-import '../../evolution_engine.dart';
+import '../../../evolution_engine.dart';
 
 class ScoresCalculator {
   final List<Player> _players;

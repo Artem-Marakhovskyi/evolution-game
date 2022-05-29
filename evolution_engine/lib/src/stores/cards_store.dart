@@ -1,9 +1,8 @@
 import 'dart:collection';
 
+import '../../evolution_engine.dart';
 import 'store.dart';
-import 'models/cards/card_kinds.dart';
-import 'models/cards/deck/deck_card.dart';
-import 'models/cards/deck/tuple_deck_card.dart';
+import '../domain/entities/cards/deck/card_kinds.dart';
 
 class CardsStore extends Store<DeckCard> {
   final List<DeckCard> _cards = [];
