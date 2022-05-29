@@ -1,7 +1,6 @@
 import 'dart:io';
-
+import 'package:evolution_engine/src/domain/state/game_state.dart';
 import 'package:evolution_engine/evolution_engine.dart';
-import 'package:evolution_engine/src/io/output/models/game_state.dart';
 
 class ConsoleInputReader extends InputReader {
   @override

@@ -1,5 +1,5 @@
 import 'package:cross_cutting/cross_cutting.dart';
-import 'package:evolution_engine/src/io/output/models/game_state.dart';
+import 'package:evolution_engine/src/domain/state/game_state.dart';
 
 class GameStateOutput {
   static const int indent = 4;

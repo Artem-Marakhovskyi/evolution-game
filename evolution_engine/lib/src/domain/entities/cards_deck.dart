@@ -3,12 +3,13 @@ import 'dart:collection';
 import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
 
 import '../../../evolution_engine.dart';
-import 'cards/deck/deck_card.dart';
 
 class CardsDeck {
   late final Queue<DeckCard> _cards;
 
   final int originLength;
+
+  List<DeckCard> get cards => UnmodifiableListView(_cards);
 
   CardsDeck(List<DeckCard> cards) : originLength = cards.length {
     _cards = Queue<DeckCard>();

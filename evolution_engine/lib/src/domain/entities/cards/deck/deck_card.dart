@@ -4,10 +4,10 @@ import 'card_kinds.dart';
 
 class DeckCard extends Identifiable {
   final CardKinds ego;
-  final String _surrogateId;
+  final String surrogateId;
 
-  DeckCard(this.ego, this._surrogateId);
+  DeckCard(this.ego, this.surrogateId);
 
   @override
-  String get id => '$_surrogateId.${ego.stringified}';
+  String get id => '$surrogateId.${ego.stringified}';
 }

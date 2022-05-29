@@ -6,9 +6,14 @@ part 'card_state.g.dart';
 class CardState {
   String ego;
   String alterEgo;
-  String id;
+  String surrogate;
 
-  CardState(this.ego, this.alterEgo, this.id);
+  factory CardState.fromString(String key) {
+    var splits = key.split('.');
+    return CardState(splits[1], splits.length > 2 ? splits[2] : '', splits[0]);
+  }
+
+  CardState(this.ego, this.alterEgo, this.surrogate);
 
   factory CardState.fromJson(Map<String, dynamic> json) =>
       _$CardStateFromJson(json);

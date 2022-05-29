@@ -13,9 +13,18 @@ part 'game_state.g.dart';
 class GameState {
   final int currentRound;
   final String currentPhase;
-  late final List<PlayerState> playersOrder;
-  late final int cardsDeckOriginLength;
-  late final int cardsDeckCurrentLength;
+  late List<PlayerState> playersOrder;
+  late List<CardState> deckLeftoverCards;
+  late int cardsDeckOriginLength;
+  late int cardsDeckCurrentLength;
+
+  GameState.createFromJson(
+      this.currentRound,
+      this.currentPhase,
+      this.playersOrder,
+      this.deckLeftoverCards,
+      this.cardsDeckOriginLength,
+      this.cardsDeckCurrentLength);
 
   GameState(this.currentPhase, this.currentRound, List<Player> players,
       CardsDeck cardsDeck) {
@@ -39,6 +48,14 @@ class GameState {
 
       var playerState = PlayerState(cardStates, animalStates, player.id);
       playerStates.add(playerState);
+      playersOrder = playerStates;
+
+      deckLeftoverCards = cardsDeck.cards
+          .map((e) => CardState(e.ego.stringified,
+              e is TupleDeckCard ? e.alterEgo.stringified : '', e.id))
+          .toList();
+      cardsDeckOriginLength = cardsDeck.originLength;
+      cardsDeckCurrentLength = cardsDeck.cards.length;
     }
   }
 
