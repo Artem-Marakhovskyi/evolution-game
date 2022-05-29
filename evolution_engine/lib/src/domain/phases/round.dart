@@ -1,13 +1,9 @@
 import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/bootstrap/ambient_context.dart';
-import 'package:evolution_engine/src/domain/phases/phase_extinction.dart';
-import 'package:evolution_engine/src/domain/phases/phase_feeding.dart';
-import 'package:evolution_engine/src/domain/phases/phase_supply.dart';
 
 import '../../../evolution_engine.dart';
-import '../cards_deck.dart';
-import '../die.dart';
-import 'phase_growth.dart';
+import '../entities/cards_deck.dart';
+import '../entities/die.dart';
 import 'phase_young_generation.dart';
 
 class Round {
