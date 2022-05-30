@@ -8,10 +8,10 @@ import 'package:yaml/yaml.dart';
 import 'predefined_dependencies_console_module.dart';
 
 Future<void> main(List<String> arguments) async {
-  var file = await File('predefined/data1.yml').readAsString();
-  var doc = loadYaml(file);
-
-  print(json.encode(doc));
+  var yamlTool = YamlTool();
+  var jsonObj = await yamlTool.readYamlAsJson('predefined/data1.yml');
+  print(jsonObj);
+  await yamlTool.writeJsonAsYaml('predefined/data2.yml', jsonObj);
   // var consoleDependencies =
   //     PredefinedDependenciesConsoleModule("bin/predefined/inputs/data1.txt");
   // var game = Game(consoleDependencies);

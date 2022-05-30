@@ -24,7 +24,6 @@ dependencies:
     #   url: git@github.com:Artem-Marakhovskyi/evolution-game.git
     #   path: evolution_engine
     path: ../../evolution_engine
-  yaml: 3.1.1
 
 dev_dependencies:
   lints: ^1.0.0
