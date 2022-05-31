@@ -4,12 +4,13 @@ import 'package:evolution_engine/src/domain/exceptions/cards_exception.dart';
 import '../../../evolution_engine.dart';
 import '../entities/cards_deck.dart';
 import 'phase.dart';
+import 'phase_kind.dart';
 
-class PhaseYoungGeneration extends Phase {
+class PhaseReproduction extends Phase {
   final List<Player> _players;
   final CardsDeck _cardsStack;
-  PhaseYoungGeneration(this._players, this._cardsStack, Log log)
-      : super(log, 'Young Generation');
+  PhaseReproduction(this._players, this._cardsStack, Log log)
+      : super(log, PhaseKind.reproduction);
 
   Future perform() async {
     verbose('started');

@@ -9,7 +9,7 @@ part of 'game_state.dart';
 GameState _$GameStateFromJson(Map<String, dynamic> json) =>
     GameState.createFromJson(
         json['currentRound'] as int,
-        json['currentPhase'] as String,
+        json['currentPhase'] as PhaseKind,
         (json['playersOrder'] as List<dynamic>)
             .map((e) => PlayerState.fromJson(e as Map<String, dynamic>))
             .toList(),

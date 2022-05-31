@@ -8,8 +8,6 @@ Future<void> main(List<String> arguments) async {
   var game = Game(consoleDependencies);
 
   var log = game.resolver.get<Log>();
-  log.verbose("Game is being prepared...");
-  await game.prepare();
   log.verbose("Game is being started...");
   await game.start();
   log.verbose("Game completed");

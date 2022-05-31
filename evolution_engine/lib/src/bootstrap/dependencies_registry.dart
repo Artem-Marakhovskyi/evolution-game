@@ -1,4 +1,5 @@
 import 'package:cross_cutting/cross_cutting.dart';
+import 'package:evolution_engine/src/domain/state/game_state_initializer.dart';
 import 'package:evolution_engine/src/io/input/input_reader.dart';
 import 'package:evolution_engine/src/io/output/output_writer.dart';
 import 'package:evolution_engine/src/stores/cards_store.dart';
@@ -24,5 +25,6 @@ class DependenciesRegistry {
     resolver.registerSingleton<Log>(externalModules.getLog());
     resolver.registerSingleton<PlayersStore>(
         externalModules.getPlayersStore(resolver));
+    resolver.registerSingleton(GameStateInitializer());
   }
 }

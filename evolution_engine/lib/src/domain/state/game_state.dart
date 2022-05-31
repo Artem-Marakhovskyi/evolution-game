@@ -1,5 +1,6 @@
 import 'package:evolution_engine/src/domain/entities/cards/deck/card_kinds.dart';
 import 'package:evolution_engine/src/domain/entities/cards_deck.dart';
+import 'package:evolution_engine/src/domain/phases/phase_kind.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../evolution_engine.dart';
@@ -12,11 +13,17 @@ part 'game_state.g.dart';
 @JsonSerializable()
 class GameState {
   final int currentRound;
-  final String currentPhase;
+  final PhaseKind currentPhase;
   late List<PlayerState> playersOrder;
   late List<CardState> deckLeftoverCards;
   late int cardsDeckOriginLength;
   late int cardsDeckCurrentLength;
+
+  bool get isEmpty => playersOrder.length == 0;
+
+  GameState.empty()
+      : this.createFromJson(
+            -1, PhaseKind.none, <PlayerState>[], <CardState>[], -1, -1);
 
   GameState.createFromJson(
       this.currentRound,
