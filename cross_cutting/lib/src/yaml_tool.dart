@@ -6,11 +6,18 @@ import 'package:yaml/yaml.dart';
 import 'package:yaml_writer/yaml_writer.dart';
 
 class YamlTool {
-  Future<dynamic> readYamlAsJson(String filename) async {
-    var file = await File(filename).readAsString();
-    var doc = loadYaml(file);
+  Future<Map<String, dynamic>> readYamlAsJson(String filename) async {
+    try {
+      var file = await File(filename).readAsString();
+      var doc = loadYaml(file);
 
-    return json.decode(json.encode(doc));
+      return jsonDecode(json.encode(doc));
+    } on Exception catch (e) {
+      print(Directory.current);
+      print(e);
+
+      return <String, dynamic>{};
+    }
   }
 
   Future writeJsonAsYaml(String filename, dynamic jsonObject) async {

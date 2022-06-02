@@ -27,3 +27,9 @@ export 'src/domain/game.dart';
 
 // infra
 export 'src/bootstrap/dependencies_external_module.dart';
+
+// states
+export 'src/domain/state/animal_state.dart';
+export 'src/domain/state/card_state.dart';
+export 'src/domain/state/game_state.dart';
+export 'src/domain/state/player_state.dart';

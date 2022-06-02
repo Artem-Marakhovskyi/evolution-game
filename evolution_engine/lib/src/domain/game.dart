@@ -58,11 +58,15 @@ class Game {
         return;
       }
 
-      // TODO: Prepare: players order
       _state = GameState(Round.initialPhaseKind, _state.currentRound + 1,
-          _players, _cardsDeck);
+          shift([..._players]), _cardsDeck);
     }
 
     var scoreTable = ScoresCalculator(_players).calculate();
+  }
+
+  List<Player> shift(List<Player> players) {
+    var last = players.removeLast();
+    return [last, ...players];
   }
 }

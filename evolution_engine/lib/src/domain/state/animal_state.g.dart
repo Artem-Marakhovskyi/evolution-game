@@ -7,7 +7,12 @@ part of 'animal_state.dart';
 // **************************************************************************
 
 AnimalState _$AnimalStateFromJson(Map<String, dynamic> json) => AnimalState(
-      (json['attrs'] as List<dynamic>).map((e) => e as String).toList(),
+      (json['attrs'] as List<dynamic>)
+          .map(
+            (e) => CardKinds.values
+                .firstWhere((element) => element.stringified == e.toString()),
+          )
+          .toList(),
     );
 
 Map<String, dynamic> _$AnimalStateToJson(AnimalState instance) =>

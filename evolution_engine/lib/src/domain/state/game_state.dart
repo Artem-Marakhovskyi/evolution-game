@@ -47,8 +47,7 @@ class GameState {
 
       var animalStates = <AnimalState>[];
       for (var animal in player.animals) {
-        var attrIds =
-            List<String>.of(animal.attrs.map((e) => e.kind.stringified));
+        var attrIds = List<CardKinds>.of(animal.attrs.map((e) => e.kind));
         var animalState = AnimalState(attrIds);
         animalStates.add(animalState);
       }
