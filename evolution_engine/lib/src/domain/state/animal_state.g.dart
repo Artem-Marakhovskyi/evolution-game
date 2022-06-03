@@ -11,5 +11,5 @@ AnimalState _$AnimalStateFromJson(Map<String, dynamic> json) => AnimalState(
 
 Map<String, dynamic> _$AnimalStateToJson(AnimalState instance) =>
     <String, dynamic>{
-      'attrs': instance.attrs,
+      'attrs': instance.attrs.map((e) => e.stringified).toList(),
     };

@@ -1,0 +1,94 @@
+currentRound: 99
+currentPhase: 'EXTINCTION'
+playersOrder: 
+  - 
+    handsCards: 
+      - 
+        ego: 'RUNNING'
+        alterEgo: 'CARNIVOROUS'
+        surrogate: '0'
+      - 
+        ego: 'RUNNING'
+        alterEgo: 'CARNIVOROUS'
+        surrogate: '1'
+      - 
+        ego: 'RUNNING'
+        alterEgo: 'CARNIVOROUS'
+        surrogate: '2'
+
+    animals: 
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+    id: 'first'
+  - 
+    handsCards: 
+      - 
+        ego: 'RUNNING'
+        alterEgo: 'CARNIVOROUS'
+        surrogate: '0'
+      - 
+        ego: 'RUNNING'
+        alterEgo: 'CARNIVOROUS'
+        surrogate: '1'
+      - 
+        ego: 'RUNNING'
+        alterEgo: 'CARNIVOROUS'
+        surrogate: '2'
+
+    animals: 
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+      - 
+        attrs: 
+          - 'RUNNING'
+          - 'HOMEOTHERMY'
+
+    id: 'second'
+
+deckLeftoverCards: 
+  - 
+    ego: 'RUNNING'
+    alterEgo: 'CARNIVOROUS'
+    surrogate: '0'
+  - 
+    ego: 'RUNNING'
+    alterEgo: 'CARNIVOROUS'
+    surrogate: '1'
+  - 
+    ego: 'RUNNING'
+    alterEgo: 'CARNIVOROUS'
+    surrogate: '2'
+
+cardsDeckOriginLength: 10
+cardsDeckCurrentLength: 3

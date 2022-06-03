@@ -13,7 +13,7 @@ CardState _$CardStateFromJson(Map<String, dynamic> json) => CardState(
     );
 
 Map<String, dynamic> _$CardStateToJson(CardState instance) => <String, dynamic>{
-      'ego': instance.ego,
-      'alterEgo': instance.alterEgo,
+      'ego': instance.ego.stringified,
+      'alterEgo': instance.alterEgo.stringified,
       'surrogate': instance.surrogate,
     };
