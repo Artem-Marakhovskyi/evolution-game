@@ -72,7 +72,7 @@ enum CardKinds {
   HOMEOTHERMY,
 }
 
-extension CardKindsExtension on CardKinds {
+extension EnumExtension on Enum {
   String get stringified => EnumToString.convertToString(this);
 }
 

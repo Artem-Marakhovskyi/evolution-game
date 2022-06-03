@@ -1,6 +1,7 @@
 import 'package:evolution_engine/src/domain/entities/cards/deck/card_kinds.dart';
 import 'package:evolution_engine/src/domain/entities/cards_deck.dart';
 import 'package:evolution_engine/src/domain/phases/phase_kind.dart';
+import 'package:get_it/get_it.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../evolution_engine.dart';
@@ -61,6 +62,40 @@ class GameState {
       cardsDeckCurrentLength = cardsDeck.cards.length;
     }
   }
+
+  @override
+  String toString() {
+    var buffer = StringBuffer();
+    buffer.writeln(
+        "\nRound: $currentRound, Phase: ${currentPhase.stringified}, Cards in deck: $cardsDeckCurrentLength");
+
+    for (var player in playersOrder) {
+      buffer.writeln(
+          "${getIndent()}Player ${player.id}, hand: ${player.handsCards.length}, animals: ${player.animals.length}");
+      buffer.write("${getIndent(2)}Hand cards: ");
+
+      int handCardCount = 1;
+      for (var handCard in player.handsCards) {
+        var write = handCardCount % 3 == 0 ? buffer.writeln : buffer.write;
+        var addition =
+            handCardCount % 3 == 1 && handCardCount > 1 ? getIndent(3) : "";
+        write(
+            "$addition${handCard.ego.stringified}${handCard.alterEgo == CardKinds.NONE ? "" : "/" + handCard.alterEgo.stringified},");
+        handCardCount++;
+      }
+
+      if (player.animals.isNotEmpty) {
+        buffer.write("${getIndent(2)}Animals cards: \n");
+        for (var animal in player.animals) {
+          buffer.writeln(
+              "${getIndent(3)}${animal.attrs.map((e) => e.stringified).join(', ')}");
+        }
+      }
+    }
+    return buffer.toString();
+  }
+
+  String getIndent([int count = 1]) => '  ' * count;
 
   factory GameState.fromJson(Map<String, dynamic> json) =>
       _$GameStateFromJson(json);
