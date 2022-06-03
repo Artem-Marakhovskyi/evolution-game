@@ -10,7 +10,7 @@ class PhaseReproduction extends Phase {
   final List<Player> _players;
   final CardsDeck _cardsStack;
   PhaseReproduction(this._players, this._cardsStack, Log log)
-      : super(log, PhaseKind.reproduction);
+      : super(log, PhaseKind.REPRODUCTION);
 
   Future perform() async {
     verbose('started');

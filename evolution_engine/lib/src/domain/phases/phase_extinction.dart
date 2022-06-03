@@ -6,7 +6,7 @@ import 'phase_kind.dart';
 
 class PhaseExtinction extends Phase {
   final List<Player> _players;
-  PhaseExtinction(this._players, Log log) : super(log, PhaseKind.extinction);
+  PhaseExtinction(this._players, Log log) : super(log, PhaseKind.EXTINCTION);
   Future perform() async {
     verbose('started');
     // TODO: Do in parallel

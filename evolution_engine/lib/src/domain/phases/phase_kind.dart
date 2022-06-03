@@ -1,9 +1,11 @@
-enum PhaseKind {
-  reproduction,
-  growth,
-  supply,
-  feeding,
-  extinction,
+// ignore_for_file: constant_identifier_names
 
-  none,
+enum PhaseKind {
+  REPRODUCTION,
+  GROWTH,
+  SUPPLY,
+  FEEDING,
+  EXTINCTION,
+
+  NONE,
 }

@@ -9,7 +9,7 @@ class PhaseSupply extends Phase {
   final Die _die;
   final int _playersCount;
   PhaseSupply(this._die, this._playersCount, Log log)
-      : super(log, PhaseKind.supply);
+      : super(log, PhaseKind.SUPPLY);
 
   Future<Feeder> getFeeder() async {
     verbose('started');

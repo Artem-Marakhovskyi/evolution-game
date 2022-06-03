@@ -12,7 +12,7 @@ Future<void> main(List<String> arguments) async {
   var json = await tool.readYamlAsJson("predefined/data1.yml");
 
   try {
-    var animalState = PlayerState.fromJson(json['player']);
+    var animalState = GameState.fromJson(json);
     print(animalState);
   } on Exception catch (e) {
     print(e);

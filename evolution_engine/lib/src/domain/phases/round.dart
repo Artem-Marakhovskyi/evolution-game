@@ -13,7 +13,7 @@ import 'phase_reproduction.dart';
 import 'phase_supply.dart';
 
 class Round {
-  static const PhaseKind initialPhaseKind = PhaseKind.reproduction;
+  static const PhaseKind initialPhaseKind = PhaseKind.REPRODUCTION;
   static const int initialRound = 0;
 
   final CardsDeck _cardsDeck;
@@ -27,35 +27,35 @@ class Round {
 
   Round(this.idx, this._currentPhase, this._untilPhaseKind, this._players,
       this._cardsDeck, this._die, this._log)
-      : assert(_currentPhase != PhaseKind.none),
+      : assert(_currentPhase != PhaseKind.NONE),
         assert(idx >= 0);
 
   Future play() async {
     _log.verbose("================= Round $idx STARTED =================");
 
-    if (canPlay(PhaseKind.reproduction)) {
+    if (canPlay(PhaseKind.REPRODUCTION)) {
       try {
         await PhaseReproduction(_players, _cardsDeck, _log).perform();
       } on CardsException catch (ex) {
         _log.info(ex.message);
       }
-      _currentPhase = PhaseKind.growth;
+      _currentPhase = PhaseKind.GROWTH;
     }
 
-    if (canPlay(PhaseKind.growth)) {
+    if (canPlay(PhaseKind.GROWTH)) {
       await PhaseGrowth(_players, _log).perform();
-      _currentPhase = PhaseKind.supply;
+      _currentPhase = PhaseKind.SUPPLY;
     }
 
-    if (canPlay(PhaseKind.supply)) {
+    if (canPlay(PhaseKind.SUPPLY)) {
       var feeder = await PhaseSupply(_die, _players.length, _log).getFeeder();
       await PhaseFeeding(feeder, _players, _log).perform();
-      _currentPhase = PhaseKind.extinction;
+      _currentPhase = PhaseKind.EXTINCTION;
     }
 
-    if (canPlay(PhaseKind.extinction)) {
+    if (canPlay(PhaseKind.EXTINCTION)) {
       await PhaseExtinction(_players, _log).perform();
-      _currentPhase = PhaseKind.none;
+      _currentPhase = PhaseKind.NONE;
     }
 
     _log.verbose("================= Round $idx COMPLETED =================");

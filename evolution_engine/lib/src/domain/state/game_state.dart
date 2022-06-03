@@ -4,9 +4,6 @@ import 'package:evolution_engine/src/domain/phases/phase_kind.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../evolution_engine.dart';
-import 'animal_state.dart';
-import 'card_state.dart';
-import 'player_state.dart';
 
 part 'game_state.g.dart';
 
@@ -19,11 +16,11 @@ class GameState {
   late int cardsDeckOriginLength;
   late int cardsDeckCurrentLength;
 
-  bool get isEmpty => playersOrder.length == 0;
+  bool get isEmpty => playersOrder.isEmpty;
 
   GameState.empty()
       : this.createFromJson(
-            -1, PhaseKind.none, <PlayerState>[], <CardState>[], -1, -1);
+            -1, PhaseKind.NONE, <PlayerState>[], <CardState>[], -1, -1);
 
   GameState.createFromJson(
       this.currentRound,

@@ -5,6 +5,6 @@ class GameConfig {
   int roundToPlayUntil;
   GameConfig(this.roundToPlayUntil, this.phaseToPlayUntil);
   GameConfig.empty()
-      : phaseToPlayUntil = PhaseKind.none,
+      : phaseToPlayUntil = PhaseKind.NONE,
         roundToPlayUntil = -1;
 }

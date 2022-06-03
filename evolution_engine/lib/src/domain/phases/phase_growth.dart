@@ -6,7 +6,7 @@ import 'phase_kind.dart';
 
 class PhaseGrowth extends Phase {
   final List<Player> _players;
-  PhaseGrowth(this._players, Log log) : super(log, PhaseKind.growth);
+  PhaseGrowth(this._players, Log log) : super(log, PhaseKind.GROWTH);
 
   Future perform() async {
     verbose('started');

@@ -1,19 +1,37 @@
-player:
-  id: "my name"
-  animals: 
-    - attrs: ["RUNNING", "HOMEOTHERMY"]
-    - attrs: ["RUNNING", "HOMEOTHERMY"]
-    - attrs: ["RUNNING", "HOMEOTHERMY"]
-    - attrs: ["RUNNING", "HOMEOTHERMY"]
-  handsCards:
-    - ego: RUNNING
-      alterEgo: CARNIVOROUS
-      surrogate: "0"
-    - ego: RUNNING
-      alterEgo: CARNIVOROUS
-      surrogate: "1"
-    - ego: RUNNING
-      alterEgo: CARNIVOROUS
-      surrogate: "2"
+currentRound: 99
+currentPhase: 
+players:
+  - id: "first"
+    animals: 
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+    handsCards:
+      - ego: RUNNING
+        alterEgo: CARNIVOROUS
+        surrogate: "0"
+      - ego: RUNNING
+        alterEgo: CARNIVOROUS
+        surrogate: "1"
+      - ego: RUNNING
+        alterEgo: CARNIVOROUS
+        surrogate: "2"
+  - id: "second"
+    animals: 
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+      - attrs: ["RUNNING", "HOMEOTHERMY"]
+    handsCards:
+      - ego: RUNNING
+        alterEgo: CARNIVOROUS
+        surrogate: "0"
+      - ego: RUNNING
+        alterEgo: CARNIVOROUS
+        surrogate: "1"
+      - ego: RUNNING
+        alterEgo: CARNIVOROUS
+        surrogate: "2"        
 
   
