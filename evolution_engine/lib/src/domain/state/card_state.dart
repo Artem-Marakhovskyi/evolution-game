@@ -1,17 +1,15 @@
+import 'package:evolution_engine/src/domain/entities/cards/deck/card_kinds.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../../evolution_engine.dart';
 
 part 'card_state.g.dart';
 
 @JsonSerializable()
 class CardState {
-  String ego;
-  String alterEgo;
+  CardKinds ego;
+  CardKinds alterEgo;
   String surrogate;
-
-  factory CardState.fromString(String key) {
-    var splits = key.split('.');
-    return CardState(splits[1], splits.length > 2 ? splits[2] : '', splits[0]);
-  }
 
   CardState(this.ego, this.alterEgo, this.surrogate);
 
@@ -19,4 +17,7 @@ class CardState {
       _$CardStateFromJson(json);
 
   Map<String, dynamic> toJson() => _$CardStateToJson(this);
+
+  @override
+  String toString() => TupleDeckCard(ego, alterEgo, surrogate).id;
 }

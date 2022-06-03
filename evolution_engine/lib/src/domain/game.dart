@@ -1,7 +1,6 @@
 import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/domain/phases/phase_kind.dart';
 import 'package:evolution_engine/src/domain/state/game_state.dart';
-import 'package:evolution_engine/src/domain/state/game_state_initializer.dart';
 
 import '../bootstrap/dependencies_registry.dart';
 import 'entities/game_config.dart';

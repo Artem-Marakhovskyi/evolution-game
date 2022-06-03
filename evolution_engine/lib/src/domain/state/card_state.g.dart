@@ -7,8 +7,8 @@ part of 'card_state.dart';
 // **************************************************************************
 
 CardState _$CardStateFromJson(Map<String, dynamic> json) => CardState(
-      json['ego'] as String,
-      json['alterEgo'] as String,
+      CardKindsFactory.fromDynamic(json['ego']),
+      CardKindsFactory.fromDynamic(json['alterEgo']),
       json['surrogate'] as String,
     );
 

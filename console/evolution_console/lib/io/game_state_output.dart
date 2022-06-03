@@ -1,5 +1,6 @@
 import 'package:cross_cutting/cross_cutting.dart';
 import 'package:evolution_engine/src/domain/state/game_state.dart';
+import 'package:evolution_engine/src/domain/entities/cards/deck/card_kinds.dart';
 
 class GameStateOutput {
   static const int indent = 4;
@@ -22,7 +23,7 @@ class GameStateOutput {
         var addition =
             handCardCount % 3 == 1 && handCardCount > 1 ? getIndent(3) : "";
         write(
-            "${addition}${handCard.ego}${handCard.alterEgo.isEmpty ? "" : "/" + handCard.alterEgo},");
+            "${addition}${handCard.ego}${handCard.alterEgo == CardKinds.NONE ? "" : "/" + handCard.alterEgo.stringified},");
         handCardCount++;
       }
     }

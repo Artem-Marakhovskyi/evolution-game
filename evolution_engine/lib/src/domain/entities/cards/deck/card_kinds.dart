@@ -75,3 +75,17 @@ enum CardKinds {
 extension CardKindsExtension on CardKinds {
   String get stringified => EnumToString.convertToString(this);
 }
+
+abstract class CardKindsFactory {
+  static List<CardKinds> fromDynamics(List<dynamic> objs) {
+    return objs
+        .map((obj) => CardKinds.values
+            .firstWhere((element) => element.stringified == obj.toString()))
+        .toList();
+  }
+
+  static CardKinds fromDynamic(dynamic obj) {
+    return CardKinds.values
+        .firstWhere((element) => element.stringified == obj.toString());
+  }
+}

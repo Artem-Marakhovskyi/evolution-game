@@ -40,8 +40,8 @@ class GameState {
       var cardStates = <CardState>[];
 
       for (var card in player.cards) {
-        var cardState = CardState(card.ego.stringified,
-            card is TupleDeckCard ? card.alterEgo.stringified : "", card.id);
+        var cardState = CardState(card.ego,
+            card is TupleDeckCard ? card.alterEgo : CardKinds.NONE, card.id);
         cardStates.add(cardState);
       }
 
@@ -57,8 +57,8 @@ class GameState {
       playersOrder = playerStates;
 
       deckLeftoverCards = cardsDeck.cards
-          .map((e) => CardState(e.ego.stringified,
-              e is TupleDeckCard ? e.alterEgo.stringified : '', e.id))
+          .map((e) => CardState(
+              e.ego, e is TupleDeckCard ? e.alterEgo : CardKinds.NONE, e.id))
           .toList();
       cardsDeckOriginLength = cardsDeck.originLength;
       cardsDeckCurrentLength = cardsDeck.cards.length;

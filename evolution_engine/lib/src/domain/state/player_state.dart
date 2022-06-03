@@ -17,4 +17,12 @@ class PlayerState {
       _$PlayerStateFromJson(json);
 
   Map<String, dynamic> toJson() => _$PlayerStateToJson(this);
+
+  @override
+  String toString() => '''$id:
+- handCards:
+${handsCards.map((e) => "  - " + e.toString()).join('\n')}
+- animals:
+${animals.map((e) => "  - " + e.toString()).join('\n')}
+''';
 }
