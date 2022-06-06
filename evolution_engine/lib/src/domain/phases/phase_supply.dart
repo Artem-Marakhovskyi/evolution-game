@@ -5,6 +5,8 @@ import '../entities/die.dart';
 import '../entities/feeder.dart';
 import 'phase.dart';
 
+/// Input: players count
+/// Output: Feeder with food count which depends on players count.
 class PhaseSupply extends Phase {
   final Die _die;
   final int _playersCount;

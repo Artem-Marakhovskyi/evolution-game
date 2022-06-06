@@ -5,6 +5,8 @@ import '../entities/feeder.dart';
 import 'phase.dart';
 import 'phase_kind.dart';
 
+/// Input:
+///
 class PhaseFeeding extends Phase {
   final Feeder _feeder;
   final List<Player> _players;

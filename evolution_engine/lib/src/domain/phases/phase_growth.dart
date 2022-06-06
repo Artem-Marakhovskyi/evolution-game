@@ -4,6 +4,8 @@ import 'package:evolution_engine/src/stores/models/player.dart';
 import 'phase.dart';
 import 'phase_kind.dart';
 
+/// Input: Players
+/// Processing: Players spawn new animals or add attributes.
 class PhaseGrowth extends Phase {
   final List<Player> _players;
   PhaseGrowth(this._players, Log log) : super(log, PhaseKind.GROWTH);
